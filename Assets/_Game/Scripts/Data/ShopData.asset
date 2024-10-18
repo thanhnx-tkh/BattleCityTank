@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694fd5201639f46f8a97607bca8d8d34, type: 3}
+  m_Name: ShopData
+  m_EditorClassIdentifier: 
+  itemDatas:
+  - sprite: {fileID: 21300000, guid: b89a37f4b25f3974993a52f193391d46, type: 2}
+    id: 1
+    name: Phoenix
+    price: 2500
+    damage: 200
+    maxHealth: 450
+    speed: 150
+  - sprite: {fileID: 21300000, guid: 3baa0538092bf0b47a050e29052bcd44, type: 2}
+    id: 2
+    name: Wolf
+    price: 2500
+    damage: 250
+    maxHealth: 400
+    speed: 125
+  - sprite: {fileID: 21300000, guid: 2784fad7d8b37964f8452e3b30357916, type: 2}
+    id: 3
+    name: Destroyer
+    price: 15000
+    damage: 500
+    maxHealth: 600
+    speed: 125
+  - sprite: {fileID: 21300000, guid: 2d3a30bb8a5ed254baa6fe05e9b2e48c, type: 2}
+    id: 4
+    name: Justice
+    price: 2000
+    damage: 200
+    maxHealth: 600
+    speed: 120
+  - sprite: {fileID: 21300000, guid: 753b1124600a38a46a60bf1c2b56e89f, type: 2}
+    id: 5
+    name: 200
+    price: 1000
+    damage: 200
+    maxHealth: 400
+    speed: 125
+  - sprite: {fileID: 21300000, guid: 398048086ad1b8847b7f9c00031977e3, type: 2}
+    id: 6
+    name: Eagle
+    price: 9000
+    damage: 350
+    maxHealth: 500
+    speed: 130
+  - sprite: {fileID: 21300000, guid: e947c049cf6eedc4d835d9a0bf0958e1, type: 2}
+    id: 7
+    name: Chaostic
+    price: 4000
+    damage: 250
+    maxHealth: 500
+    speed: 125
+  - sprite: {fileID: 21300000, guid: 091465d12f40b4a489c1b1c06c7d3b06, type: 2}
+    id: 8
+    name: Batman
+    price: 3500
+    damage: 200
+    maxHealth: 500
+    speed: 125
+  - sprite: {fileID: 21300000, guid: ca45dc2854ce7ba4e8a3bac3cfb5fc46, type: 2}
+    id: 9
+    name: Savior
+    price: 400
+    damage: 400
+    maxHealth: 650
+    speed: 100
+  - sprite: {fileID: 21300000, guid: bd1a178ff56c8744984b45a31e854ac4, type: 2}
+    id: 10
+    name: Warrior
+    price: 11000
+    damage: 300
+    maxHealth: 800
+    speed: 100
