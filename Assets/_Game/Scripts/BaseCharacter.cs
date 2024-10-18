@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    [SerializeField] protected int id;
-
-    public int Id => id;
-
-    public void Move(){
+    [SerializeField] public float speed;
+    [SerializeField] public float dame;
+    [SerializeField] public float attackSpeed;
+    public virtual void Move(){
         
+    }
+    public virtual void Fire()
+    {
+
     }
 }
