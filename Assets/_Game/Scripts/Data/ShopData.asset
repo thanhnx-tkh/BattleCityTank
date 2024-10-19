@@ -13,70 +13,70 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: 
   itemDatas:
-  - sprite: {fileID: 21300000, guid: b89a37f4b25f3974993a52f193391d46, type: 2}
+  - sprite: {fileID: 21300000, guid: eef1d51988bf1bb43b7f4a12726ea5a1, type: 3}
     id: 1
     name: Phoenix
     price: 2500
     damage: 200
     maxHealth: 450
     speed: 150
-  - sprite: {fileID: 21300000, guid: 3baa0538092bf0b47a050e29052bcd44, type: 2}
+  - sprite: {fileID: 21300000, guid: 66c210c73d873504cb44d4c4c6e912df, type: 3}
     id: 2
     name: Wolf
     price: 2500
     damage: 250
     maxHealth: 400
     speed: 125
-  - sprite: {fileID: 21300000, guid: 2784fad7d8b37964f8452e3b30357916, type: 2}
+  - sprite: {fileID: 21300000, guid: 6be521302d1201940bbea440bef1f6fb, type: 3}
     id: 3
     name: Destroyer
     price: 15000
     damage: 500
     maxHealth: 600
     speed: 125
-  - sprite: {fileID: 21300000, guid: 2d3a30bb8a5ed254baa6fe05e9b2e48c, type: 2}
+  - sprite: {fileID: 21300000, guid: 8afec0c309f5a4445a75114b029dfbbf, type: 3}
     id: 4
     name: Justice
     price: 2000
     damage: 200
     maxHealth: 600
     speed: 120
-  - sprite: {fileID: 21300000, guid: 753b1124600a38a46a60bf1c2b56e89f, type: 2}
+  - sprite: {fileID: 21300000, guid: 56b369f26e4a0a649b101e30a009ad25, type: 3}
     id: 5
-    name: 200
+    name: Panther
     price: 1000
     damage: 200
     maxHealth: 400
     speed: 125
-  - sprite: {fileID: 21300000, guid: 398048086ad1b8847b7f9c00031977e3, type: 2}
+  - sprite: {fileID: 21300000, guid: e077063e361f865418c6406c74e1dce1, type: 3}
     id: 6
     name: Eagle
     price: 9000
     damage: 350
     maxHealth: 500
     speed: 130
-  - sprite: {fileID: 21300000, guid: e947c049cf6eedc4d835d9a0bf0958e1, type: 2}
+  - sprite: {fileID: 21300000, guid: e2f3ddd4f9b06c74ea3d13028750df52, type: 3}
     id: 7
     name: Chaostic
     price: 4000
     damage: 250
     maxHealth: 500
     speed: 125
-  - sprite: {fileID: 21300000, guid: 091465d12f40b4a489c1b1c06c7d3b06, type: 2}
+  - sprite: {fileID: 21300000, guid: 78bf28065a349b646926320f3883b476, type: 3}
     id: 8
     name: Batman
     price: 3500
     damage: 200
     maxHealth: 500
     speed: 125
-  - sprite: {fileID: 21300000, guid: ca45dc2854ce7ba4e8a3bac3cfb5fc46, type: 2}
+  - sprite: {fileID: 21300000, guid: 40e7f7c506272cb4cb0c87f67d3d58d8, type: 3}
     id: 9
     name: Savior
     price: 400
     damage: 400
     maxHealth: 650
     speed: 100
-  - sprite: {fileID: 21300000, guid: bd1a178ff56c8744984b45a31e854ac4, type: 2}
+  - sprite: {fileID: 21300000, guid: 38e59f6bf53c68742afc2923a8ca518d, type: 3}
     id: 10
     name: Warrior
     price: 11000
