@@ -12,103 +12,123 @@ public enum Direction
 }
 public class PlayerController : BaseCharacter
 {
-    [field: SerializeField] public int id { get; set; }
-    [SerializeField] private Transform Cannon;
+    [field: SerializeField] public int Id { get; set; }
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private GameObject bullet;
-
-    private Direction currentDir;
-    private bool canAttack = true;
+    [SerializeField] private BaseBullet prefabBullet;
+    [SerializeField] private Transform pointFire;
+    [SerializeField] private Animator anim;
     private Vector3 mousePosDown;
     private Vector3 mousePosUp;
-    private bool isTouch;
-    private bool isMove = true;
-    private float currentAngle;
-
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 directionMove;
+    private bool isMoving = true;
+    private bool canFire = true;
+    private float angle;
+    private void Start()
     {
-        currentAngle = 90;
+        directionMove = Vector3.forward * speed;
+    }
+    private void Update()
+    {
+        HandleAnimations();
+        GetDirectionMoving();
+
+    }
+    private void FixedUpdate()
+    {
+        if (isMoving)
+            Move();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmosSelected()
     {
-        Move();
+        rb = GetComponent<Rigidbody>();
+        pointFire = GetComponentInChildrenByName<Transform>("FireTransform");
+        anim = GetComponentInChildrenByName<Animator>("Tank");
     }
 
-    public override void Fire()
+    public T GetComponentInChildrenByName<T>(string childName) where T : Component
     {
-        GameObject bulletPlayer = Instantiate(bullet, Cannon.transform.position, this.transform.rotation);
-        bulletPlayer.GetComponent<BaseBullet>().OnInit(Cannon.forward);
-    }
+        T[] components = GetComponentsInChildren<T>();
 
-    IEnumerator FireInterval()
-    {
-        canAttack = false;
-        GameObject bulletPlayer = Instantiate(bullet, Cannon.transform.position, Cannon.transform.rotation);
-        bulletPlayer.GetComponent<BaseBullet>().OnInit(Cannon.forward);
-        yield return new WaitForSeconds(attackSpeed);
-        canAttack = true;
-    }
+        foreach (T component in components)
+        {
+            if (component.gameObject.name == childName)
+            {
+                return component;
+            }
+        }
 
+        return null; 
+    }
     public override void Move()
     {
-        if (Input.GetMouseButton(0))
-        {
-            isMove = false;
-            if(canAttack)
-            StartCoroutine(FireInterval());
-        }
-        if (!isMove) return;
-        currentDir = GetDirection(Angle());
+        rb.velocity = directionMove * speed;
+    }
+    public void GetDirectionMoving()
+    {
+        Angle();
+        Direction currentDir = GetDirection();
+
         switch (currentDir)
         {
             case Direction.Up:
-                this.transform.rotation = Quaternion.LookRotation(Camera.main.transform.up);
-                rb.velocity = Vector3.forward * speed;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                directionMove = Vector3.forward * speed;
                 break;
             case Direction.Right:
-                this.transform.rotation = Quaternion.LookRotation(Camera.main.transform.right);
-                rb.velocity = Vector3.right * speed;
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+                directionMove = Vector3.right * speed;
                 break;
             case Direction.Left:
-                this.transform.rotation = Quaternion.LookRotation(-Camera.main.transform.right);
-                rb.velocity = Vector3.left * speed;
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+                directionMove = Vector3.left * speed;
                 break;
             case Direction.Down:
-                this.transform.rotation = Quaternion.LookRotation(-Camera.main.transform.up);
-                rb.velocity = Vector3.back * speed;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                directionMove = Vector3.back * speed;
+                break;
+            case Direction.None:
                 break;
             default:
                 break;
         }
     }
-
-    private float Angle()
+    private void Angle()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            isMoving = false;
             mousePosDown = Input.mousePosition;
-            isTouch = true;
+            rb.velocity = Vector3.zero;
+
+
+        }
+        if (Input.GetMouseButton(0))
+        {
+            if (canFire)
+                StartCoroutine(Shoot());
+
+            mousePosUp = Input.mousePosition;
+            Vector3 directionVector = mousePosUp - mousePosDown;
+            if (directionVector.magnitude < 2f)
+            {
+                this.angle = 1000;
+            }
+            else
+            {
+                this.angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
+
+            }
         }
         if (Input.GetMouseButtonUp(0))
         {
-            isMove = true;
-            mousePosUp = Input.mousePosition;
-            Vector3 dir = mousePosUp - mousePosDown;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            if (angle != 0)
-            {
-                currentAngle = angle;
-                return currentAngle;
-            }
+            isMoving = true;
         }
-        return currentAngle;
     }
 
-    private Direction GetDirection(float angle)
+    private Direction GetDirection()
     {
+        if (angle == 1000) return Direction.None;
         if (angle >= 45 && angle < 135)
         {
             return Direction.Up;
@@ -128,6 +148,42 @@ public class PlayerController : BaseCharacter
         else
         {
             return Direction.None;
+        }
+    }
+    public IEnumerator Shoot()
+    {
+        canFire = false;
+        yield return new WaitForSeconds(attackSpeed * 0.2f);
+        anim.SetTrigger("shoot");
+        BaseBullet bulletPlayer = Instantiate(prefabBullet);
+
+        bulletPlayer.transform.position = pointFire.position;
+        bulletPlayer.transform.rotation = Quaternion.LookRotation(directionMove);
+        bulletPlayer.OnInit(directionMove);
+
+        yield return new WaitForSeconds(attackSpeed * 0.8f);
+        canFire = true;
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = Vector3.zero;
+        isMoving = false;
+    }
+
+    private void HandleAnimations()
+    {
+        float speedValue = rb.velocity.magnitude;
+
+        anim.SetFloat("run", speedValue);
+
+        if (speedValue > 0.1f)
+        {
+            anim.SetFloat("run", 1.0f);
+        }
+        else
+        {
+            anim.SetFloat("run", 0.0f);
         }
     }
 }
