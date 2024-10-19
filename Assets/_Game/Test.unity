@@ -24879,11 +24879,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   dame: 0
-  attackSpeed: 2
+  attackSpeed: 3
   <id>k__BackingField: 0
   Cannon: {fileID: 39202322}
   rb: {fileID: 2121300066}
-  bullet: {fileID: 1595978809024070, guid: a262ab083f4c5ed4b89a6f8eff7a3f25, type: 3}
+  bullet: {fileID: 1828529452341307, guid: 4c9084ee4f9a31248873be342f27faea, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

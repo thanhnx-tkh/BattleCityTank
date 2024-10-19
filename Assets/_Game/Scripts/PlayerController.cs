@@ -17,45 +17,52 @@ public class PlayerController : BaseCharacter
     [SerializeField] private Rigidbody rb;
     [SerializeField] private GameObject bullet;
 
+    private Direction currentDir;
     private bool canAttack = true;
     private Vector3 mousePosDown;
     private Vector3 mousePosUp;
     private bool isTouch;
+    private bool isMove = true;
+    private float currentAngle;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        currentAngle = 90;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        Fire();
     }
 
     public override void Fire()
     {
-        if (canAttack)
-        {
-            StartCoroutine(FireInterval(attackSpeed));
-        }
+        GameObject bulletPlayer = Instantiate(bullet, Cannon.transform.position, this.transform.rotation);
+        bulletPlayer.GetComponent<BaseBullet>().OnInit(Cannon.forward);
     }
 
-    IEnumerator FireInterval(float attackSpeed)
+    IEnumerator FireInterval()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackSpeed);
         GameObject bulletPlayer = Instantiate(bullet, Cannon.transform.position, Cannon.transform.rotation);
         bulletPlayer.GetComponent<BaseBullet>().OnInit(Cannon.forward);
+        yield return new WaitForSeconds(attackSpeed);
         canAttack = true;
     }
 
     public override void Move()
     {
-        Direction dir = GetDirection(Angle());
-        switch (dir)
+        if (Input.GetMouseButton(0))
+        {
+            isMove = false;
+            if(canAttack)
+            StartCoroutine(FireInterval());
+        }
+        if (!isMove) return;
+        currentDir = GetDirection(Angle());
+        switch (currentDir)
         {
             case Direction.Up:
                 this.transform.rotation = Quaternion.LookRotation(Camera.main.transform.up);
@@ -73,8 +80,6 @@ public class PlayerController : BaseCharacter
                 this.transform.rotation = Quaternion.LookRotation(-Camera.main.transform.up);
                 rb.velocity = Vector3.back * speed;
                 break;
-            case Direction.None:
-                break;
             default:
                 break;
         }
@@ -85,14 +90,21 @@ public class PlayerController : BaseCharacter
         if (Input.GetMouseButtonDown(0))
         {
             mousePosDown = Input.mousePosition;
+            isTouch = true;
         }
         if (Input.GetMouseButtonUp(0))
         {
+            isMove = true;
             mousePosUp = Input.mousePosition;
+            Vector3 dir = mousePosUp - mousePosDown;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            if (angle != 0)
+            {
+                currentAngle = angle;
+                return currentAngle;
+            }
         }
-        Vector3 dir = mousePosUp - mousePosDown;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        return angle;
+        return currentAngle;
     }
 
     private Direction GetDirection(float angle)
