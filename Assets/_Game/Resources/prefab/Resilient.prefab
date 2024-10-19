@@ -2,16 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1438579807358179
 GameObject:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4968228111215197}
   - component: {fileID: 33312956463444144}
   - component: {fileID: 23720579867024440}
-  - component: {fileID: 114344739365652016}
   - component: {fileID: 65129066044299188}
   m_Layer: 0
   m_Name: Resilient
@@ -22,12 +21,12 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4968228111215197
 Transform:
-  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438579807358179}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.35, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
@@ -85,21 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114344739365652016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438579807358179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f03ddf140a13e0658f45f7662d93534, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
 --- !u!65 &65129066044299188
 BoxCollider:
-  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,5 +102,6 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 3
   m_Size: {x: 0.009286014, y: 0.0070900926, z: 0.023680221}
   m_Center: {x: 0, y: -0.00040753305, z: 0.0016012192}
