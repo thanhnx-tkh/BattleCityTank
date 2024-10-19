@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 136553133453210587}
   - component: {fileID: 54192794933115721}
   - component: {fileID: 82118486496398113}
-  - component: {fileID: 7200043286389678754}
+  - component: {fileID: 5373310440610400154}
   m_Layer: 14
   m_Name: BulletGoldEnemy
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 4590375847306890}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0}
 --- !u!33 &33279759016818023
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!82 &82118486496398113
 AudioSource:
@@ -149,7 +149,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 694d3aa9ec122c84689cf813d7ed4f4d, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -234,7 +234,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7200043286389678754
+--- !u!114 &5373310440610400154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,11 +243,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1292158925331792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dabb8d7594fd4025a93570dafc1fcf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 065b0c363bb3716438959e21f90d008b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 0
-  <TypeBullet>k__BackingField: 0
+  <Id>k__BackingField: 1
+  <TypeBullet>k__BackingField: 1
   <Speed>k__BackingField: 5
   audioFire: {fileID: 82118486496398113}
   rb: {fileID: 54192794933115721}

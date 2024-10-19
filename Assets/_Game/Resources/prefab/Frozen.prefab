@@ -2,16 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1084358455770844
 GameObject:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4047932161927248}
   - component: {fileID: 33318471380451400}
   - component: {fileID: 23877567637733633}
-  - component: {fileID: 114206149603405301}
   - component: {fileID: 65159898780272815}
   m_Layer: 0
   m_Name: Frozen
@@ -22,12 +21,12 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4047932161927248
 Transform:
-  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084358455770844}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: -0.35930437, z: 0.04486724}
   m_LocalScale: {x: 140, y: 140, z: 140}
@@ -85,21 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114206149603405301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084358455770844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f03ddf140a13e0658f45f7662d93534, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
 --- !u!65 &65159898780272815
 BoxCollider:
-  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,5 +102,6 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 3
   m_Size: {x: 0.0042739348, y: 0.0026030254, z: 0.0047418023}
-  m_Center: {x: 6.580353E-06, y: -0.00025137802, z: 0.00021926122}
+  m_Center: {x: 0.000006580353, y: -0.00025137802, z: 0.00021926122}

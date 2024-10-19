@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    [SerializeField] public float speed;
-    [SerializeField] public float dame;
-    [SerializeField] public float attackSpeed;
-    public virtual void Move(){
+    [field: SerializeField] public float moveSpeed { get; set; }
+    [field: SerializeField] public float dame { get; set; }
+    [field: SerializeField] public float attackSpeed;
+    public virtual void Move()
+    {
         
     }
     public virtual void Fire()

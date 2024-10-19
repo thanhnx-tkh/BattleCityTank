@@ -23,7 +23,6 @@ public class BaseBullet : MonoBehaviour
     private void Start()
     {
         rb.useGravity = false;
-        //OnInit(Vector3.forward);
     }
     public void OnInit(Vector3 direction)
     {
@@ -37,12 +36,12 @@ public class BaseBullet : MonoBehaviour
             // to do : logic Player
             Debug.Log("Player");
         }
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(Const.obstacleTag) || other.CompareTag(Const.borderTag))
         {
             // to do : logic Enemy
-            Debug.Log("Enemy");
+            Debug.Log("Obstacle");
         }
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag(Const.wallTag))
         {
             // to do : logic wall
             Debug.Log("Wall");
