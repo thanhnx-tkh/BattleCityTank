@@ -4,9 +4,10 @@ using UnityEngine;
 public enum TypeBullet
 {
     Player,
-    Enemy
+    Enemy,
+    Solider
 }
-public class BaseBullet : MonoBehaviour
+public class BaseBullet : GameUnit
 {
     [field: SerializeField] public float Id { get; set; }
     [field: SerializeField] public TypeBullet TypeBullet { get; set; }
@@ -40,6 +41,8 @@ public class BaseBullet : MonoBehaviour
         {
             // to do : logic Enemy
             Debug.Log("Obstacle");
+            SimplePool.Despawn(this);
+            
         }
         if (other.CompareTag(Const.wallTag))
         {

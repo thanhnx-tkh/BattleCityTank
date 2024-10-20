@@ -12,9 +12,9 @@ public class Wave2 : BaseWave
     {
         for (int i = spawnsTransform.Count - 1; i >= 0; i--)
         {
-            GameObject tank = Instantiate(enemyPrefab, spawnsTransform[i].position, spawnsTransform[i].rotation);
+            UnityEngine.GameObject tank = Instantiate(enemyPrefab, spawnsTransform[i].position, spawnsTransform[i].rotation);
             tank.transform.SetParent(spawnsTransform[i].gameObject.transform);
-            GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
+            UnityEngine.GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
             tankEnemy.Add(tank);
             Destroy(effect, timeDestroyEffect);
         }

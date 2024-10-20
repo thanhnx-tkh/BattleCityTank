@@ -125155,7 +125155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -167.828, y: -290}
+  m_AnchoredPosition: {x: -168, y: -290}
   m_SizeDelta: {x: -335.656, y: -290}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &2665
@@ -126547,7 +126547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -478.36676}
+  m_AnchoredPosition: {x: 0, y: -478.25}
   m_SizeDelta: {x: -1385.4624, y: -956.73364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2735
@@ -126626,7 +126626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 70, y: -228.71399}
+  m_AnchoredPosition: {x: 70, y: -229}
   m_SizeDelta: {x: -444.211, y: 252.2838}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &2739
@@ -127524,7 +127524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.075195}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: -50.150097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2783
@@ -127621,7 +127621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.6906109}
   m_AnchorMax: {x: 0.5, y: 0.6906109}
-  m_AnchoredPosition: {x: 0, y: 96.14905}
+  m_AnchoredPosition: {x: 0, y: 96.25}
   m_SizeDelta: {x: 1118.9751, y: 342.8474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2788
@@ -131611,6 +131611,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 10293522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &981383195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981383196}
+  - component: {fileID: 981383197}
+  - component: {fileID: 981383198}
+  m_Layer: 0
+  m_Name: BulletManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981383196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981383195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.8108683, y: -7.638733, z: 9.710268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981383197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981383195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d49738633987248aae262d6a3838c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets: {fileID: 11400000, guid: b85c02347ee369a43b0f011aabaeb290, type: 2}
+--- !u!114 &981383198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981383195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e15cc54a36e25b41a5c36acf077ad0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pool:
+  - root: {fileID: 0}
+    prefab: {fileID: 664566873391046521, guid: 4c9084ee4f9a31248873be342f27faea, type: 3}
+    amount: 5
+    collect: 0
+  - root: {fileID: 0}
+    prefab: {fileID: -5336815737058683190, guid: 915a842e93b5d73459022ddd34a2a49f, type: 3}
+    amount: 5
+    collect: 0
+  - root: {fileID: 0}
+    prefab: {fileID: 7072560582028800357, guid: a262ab083f4c5ed4b89a6f8eff7a3f25, type: 3}
+    amount: 5
+    collect: 0
+  Particle: []
 --- !u!1 &1554291908
 GameObject:
   m_ObjectHideFlags: 0
@@ -131790,3 +131862,4 @@ SceneRoots:
   - {fileID: 1271}
   - {fileID: 1278}
   - {fileID: 2697}
+  - {fileID: 981383196}

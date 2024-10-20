@@ -2505,7 +2505,7 @@ GameObject:
   - component: {fileID: 136220720207789219}
   - component: {fileID: 54504207839024897}
   - component: {fileID: 82636831131277160}
-  - component: {fileID: 1549938202526002508}
+  - component: {fileID: 7072560582028800357}
   m_Layer: 0
   m_Name: BulletRocket
   m_TagString: Untagged
@@ -2676,7 +2676,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1549938202526002508
+--- !u!114 &7072560582028800357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2685,11 +2685,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1595978809024070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bce5f298b9ec4428ef49efbeb0c1ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dabb8d7594fd4025a93570dafc1fcf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 2
-  <TypeBullet>k__BackingField: 1
+  <TypeBullet>k__BackingField: 2
   <Speed>k__BackingField: 5
   audioFire: {fileID: 82636831131277160}
   rb: {fileID: 54504207839024897}
