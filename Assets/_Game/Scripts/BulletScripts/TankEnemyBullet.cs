@@ -6,7 +6,7 @@ public class TankEnemyBullet : BaseBullet
 {
     private Health health;
     private float dame;
-    private GameObject wall;
+    private UnityEngine.GameObject wall;
     private void OnTriggerEnter(Collider TankBullet)
     {
         //Debug.Log(TankBullet.gameObject.name);

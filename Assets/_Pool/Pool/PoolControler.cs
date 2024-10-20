@@ -59,7 +59,7 @@ public class PoolControlerEditor : Editor
             {
                 if (pool.Pool[i].root == null)
                 {
-                    Transform tf = new GameObject(pool.Pool[i].prefab.poolType.ToString()).transform;
+                    Transform tf = new UnityEngine.GameObject(pool.Pool[i].prefab.poolType.ToString()).transform;
                     tf.parent = pool.transform;
                     pool.Pool[i].root = tf; 
                 }
@@ -69,7 +69,7 @@ public class PoolControlerEditor : Editor
             {
                 if (pool.Particle[i].root == null)
                 {
-                    Transform tf = new GameObject(pool.Particle[i].particleType.ToString()).transform;
+                    Transform tf = new UnityEngine.GameObject(pool.Particle[i].particleType.ToString()).transform;
                     tf.parent = pool.transform;
                     pool.Particle[i].root = tf; 
                 }
@@ -94,7 +94,7 @@ public class PoolControlerEditor : Editor
 
                 if (!isDuplicate)
                 {
-                    Transform root = new GameObject(resources[i].name).transform;
+                    Transform root = new UnityEngine.GameObject(resources[i].name).transform;
 
                     PoolAmount newPool = new PoolAmount(root, resources[i], SimplePool.DEFAULT_POOL_SIZE, true);
 

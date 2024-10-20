@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemyController : BaseCharacter
 {
-    [SerializeField] private LeanGameObjectPool pool;
+    //[SerializeField] private LeanGameObjectPool pool;
     [SerializeField] private Rigidbody rb;
     [SerializeField] public CheckBox checkBox;
     [SerializeField] public Transform bulletSpawn;
     [SerializeField] private Animator anim;
-
-    private GameObject bullet;
+    [SerializeField] private TypeBullet typeBullet;
+    private BaseBullet bullet;
     public Vector3 randomDirection { get; set; }
     public float fireDelayTime;
     public float moveDelayTime;
@@ -27,7 +27,6 @@ public class EnemyController : BaseCharacter
         fireState = new FireState();
         runState = new RunState();
         currentState = fireState;
-        //Rotate(randomDirection);
     }
     private void Update()
     {
@@ -75,8 +74,8 @@ public class EnemyController : BaseCharacter
     
     public override void Fire()
     {
-        bullet = pool.Spawn(bulletSpawn.position,bulletSpawn.rotation);
-        bullet.GetComponent<BaseBullet>().OnInit(transform.forward*attackSpeed);
+        bullet = (BaseBullet)SimplePool.Spawn(BulletManager.Ins.GetBulletType(typeBullet).GetComponent<BaseBullet>(), bulletSpawn.position, bulletSpawn.rotation);
+        bullet.OnInit(transform.forward);
         rb.velocity = Vector3.zero;
         anim.SetFloat(Const.runParaname, 0f);
         anim.SetTrigger(Const.shotParame);
@@ -85,7 +84,7 @@ public class EnemyController : BaseCharacter
     private IEnumerator DespawnBulelt()
     {
         yield return new WaitForSeconds(bulletTimeDisable);
-        pool.Despawn(bullet);
+        SimplePool.Despawn(bullet);
         StopCoroutine(bullets);
     }
     public void ChangeState(IState<EnemyController> newState)

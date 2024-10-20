@@ -17506,11 +17506,11 @@ MonoBehaviour:
   <moveSpeed>k__BackingField: 1
   <dame>k__BackingField: 100
   attackSpeed: 1.5
-  pool: {fileID: 8165820744486960602}
   rb: {fileID: 6979680285898585675}
   checkBox: {fileID: 2322823746548725613}
   bulletSpawn: {fileID: 4445612727153794524}
   anim: {fileID: 5114952284278527559}
+  typeBullet: 1
   fireDelayTime: 0.5
   moveDelayTime: 3
   bulletTimeDisable: 3

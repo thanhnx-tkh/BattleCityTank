@@ -17,13 +17,13 @@ public class MiniPool<T> where T : Component
 
         for (int i = 0; i < amount; i++)
         {
-            Despawn(GameObject.Instantiate(prefab, parent));
+            Despawn(UnityEngine.GameObject.Instantiate(prefab, parent));
         }
     }
 
     public T Spawn(Vector3 pos, Quaternion rot)
     {
-        T go = pools.Count > 0 ? pools.Dequeue() : GameObject.Instantiate(prefab, parent);
+        T go = pools.Count > 0 ? pools.Dequeue() : UnityEngine.GameObject.Instantiate(prefab, parent);
 
         listActives.Add(go);
 
@@ -34,7 +34,7 @@ public class MiniPool<T> where T : Component
     }
     public T Spawn()
     {
-        T go = pools.Count > 0 ? pools.Dequeue() : GameObject.Instantiate(prefab, parent);
+        T go = pools.Count > 0 ? pools.Dequeue() : UnityEngine.GameObject.Instantiate(prefab, parent);
 
         listActives.Add(go);
         go.gameObject.SetActive(true);
@@ -66,7 +66,7 @@ public class MiniPool<T> where T : Component
 
         while (pools.Count > 0)
         {
-            GameObject.Destroy(pools.Dequeue().gameObject);
+            UnityEngine.GameObject.Destroy(pools.Dequeue().gameObject);
         }
     }
 

@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "ShopData", menuName = "ScriptableObjects/ShopData", order = 1)]
 public class ShopData : ScriptableObject
 {
-    [ListDrawerSettings(Expanded = true)]
+    [ListDrawerSettings(ShowFoldout = true)]
     public List<ShopItemData> itemDatas;
 }
 

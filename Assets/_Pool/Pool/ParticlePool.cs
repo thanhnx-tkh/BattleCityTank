@@ -15,8 +15,8 @@ public static class ParticlePool
         {
             if (root == null)
             {
-                PoolControler controler = GameObject.FindObjectOfType<PoolControler>();
-                root = controler != null ? controler.transform : new GameObject("ParticlePool").transform;
+                PoolControler controler = UnityEngine.GameObject.FindObjectOfType<PoolControler>();
+                root = controler != null ? controler.transform : new UnityEngine.GameObject("ParticlePool").transform;
             }
 
             return root;
@@ -89,7 +89,7 @@ public static class ParticlePool
 
             for (int i = 0; i < initialQty; i++)
             {
-                ParticleSystem particle = (ParticleSystem)GameObject.Instantiate(prefab, m_sRoot);
+                ParticleSystem particle = (ParticleSystem)UnityEngine.GameObject.Instantiate(prefab, m_sRoot);
                 particle.Stop();
                 inactive.Add(particle);
             }
@@ -108,7 +108,7 @@ public static class ParticlePool
 
             if (obj.isPlaying)
             {
-                obj = (ParticleSystem)GameObject.Instantiate(prefab, m_sRoot);
+                obj = (ParticleSystem)UnityEngine.GameObject.Instantiate(prefab, m_sRoot);
                 obj.Stop();
                 inactive.Insert(index, obj);
             }
@@ -119,7 +119,7 @@ public static class ParticlePool
 
         public void Release() {
             while(inactive.Count > 0) {
-                GameObject.DestroyImmediate(inactive[0]);
+                UnityEngine.GameObject.DestroyImmediate(inactive[0]);
                 inactive.RemoveAt(0);
             }
             inactive.Clear();
@@ -160,7 +160,7 @@ public static class ParticlePool
 
         if (!pools.ContainsKey(prefab.GetInstanceID()))
         {
-            Transform newRoot = new GameObject("VFX_" + prefab.name).transform;
+            Transform newRoot = new UnityEngine.GameObject("VFX_" + prefab.name).transform;
             newRoot.SetParent(Root);
             pools[prefab.GetInstanceID()] = new Pool(prefab, 10, newRoot);
         }
@@ -189,7 +189,7 @@ public static class ParticlePool
         }
         else
         {
-            GameObject.DestroyImmediate(prefab);
+            UnityEngine.GameObject.DestroyImmediate(prefab);
         }
     }
     

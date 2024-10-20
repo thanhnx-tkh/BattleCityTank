@@ -74,7 +74,7 @@ public static class SimplePool
             GameUnit obj;
             if (m_inactive.Count == 0)
             {
-                obj = (GameUnit)GameObject.Instantiate(m_prefab, m_sRoot);
+                obj = (GameUnit)UnityEngine.GameObject.Instantiate(m_prefab, m_sRoot);
             }
             else
             {
@@ -118,7 +118,7 @@ public static class SimplePool
             while (m_inactive.Count > 0)
             {
                 GameUnit go = m_inactive.Dequeue();
-                GameObject.DestroyImmediate(go);
+                UnityEngine.GameObject.DestroyImmediate(go);
             }
             m_inactive.Clear();
         }
@@ -156,8 +156,8 @@ public static class SimplePool
         {
             if (root == null)
             {
-                PoolControler controler = GameObject.FindObjectOfType<PoolControler>();
-                root = controler != null ? controler.transform : new GameObject("Pool").transform;
+                PoolControler controler = UnityEngine.GameObject.FindObjectOfType<PoolControler>();
+                root = controler != null ? controler.transform : new UnityEngine.GameObject("Pool").transform;
             }
 
             return root;
@@ -290,7 +290,7 @@ public static class SimplePool
     {
         if (!IsHasPool(obj))
         {
-            Transform newRoot = new GameObject(obj.name).transform;
+            Transform newRoot = new UnityEngine.GameObject(obj.name).transform;
             newRoot.SetParent(Root);
             Preload(obj, 1, newRoot, true);
         }
@@ -301,7 +301,7 @@ public static class SimplePool
     {
         if (!IsHasPool(obj))
         {
-            Transform newRoot = new GameObject(obj.name).transform;
+            Transform newRoot = new UnityEngine.GameObject(obj.name).transform;
             newRoot.SetParent(Root);
             Preload(obj, 1, newRoot, true);
         }
@@ -322,7 +322,7 @@ public static class SimplePool
             }
             else
             {
-                GameObject.Destroy(obj.gameObject);
+                UnityEngine.GameObject.Destroy(obj.gameObject);
             }
         }
     }

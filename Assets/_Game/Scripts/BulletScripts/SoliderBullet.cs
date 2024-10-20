@@ -6,7 +6,7 @@ public class SoliderBullet : BaseBullet
 {
     private Health health;
     private float dame;
-    private GameObject wall;
+    private UnityEngine.GameObject wall;
     private void OnTriggerEnter(Collider SoliderBullet)
     {
         if (SoliderBullet.CompareTag(Const.playerTag))

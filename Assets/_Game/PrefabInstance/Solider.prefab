@@ -12422,7 +12422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idBullet: 2
-  characterType: 1
+  characterType: 2
 --- !u!114 &7112574753032690250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12438,11 +12438,11 @@ MonoBehaviour:
   <moveSpeed>k__BackingField: 0.7
   <dame>k__BackingField: 100
   attackSpeed: 1.5
-  pool: {fileID: 6993989678154616110}
   rb: {fileID: 3493135711965345068}
   checkBox: {fileID: 4422593952359800189}
   bulletSpawn: {fileID: 8261438285023768108}
   anim: {fileID: 1655021083423469935}
+  typeBullet: 2
   fireDelayTime: 0.5
   moveDelayTime: 3
   bulletTimeDisable: 3

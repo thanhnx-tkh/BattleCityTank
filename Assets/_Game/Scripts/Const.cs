@@ -5,7 +5,8 @@ using UnityEngine;
 public enum characterType
 {
     Player,
-    Enemy
+    Enemy,
+    Solider
 }
 
 public class Const : MonoBehaviour
