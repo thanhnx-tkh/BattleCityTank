@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] public float maxHealth { get; set; }
-    [SerializeField] public float health { get; set; }
+    [field: SerializeField] public float maxHealth { get; set; }
+    [field: SerializeField] public float health { get; set; }
 
+    public UnityEvent<float, float> onHealthChange;
     public bool isDead => health <= 0;
 
     private void Awake()
@@ -17,9 +19,12 @@ public class Health : MonoBehaviour
     {
         if (isDead) return;
         health -= dame;
+        onHealthChange?.Invoke(health,maxHealth);
+        if (isDead)
+            Dead();
     }
     public virtual void Dead()
     {
-
+        Destroy(this.gameObject);
     }
 }

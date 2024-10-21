@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wave2 : BaseWave
 {
+    [SerializeField] public List<GameObject> tankEnemy;
     private void Start()
     {
         SpawnEnemy();
@@ -11,12 +12,30 @@ public class Wave2 : BaseWave
     protected override void SpawnEnemy()
     {
         for (int i = spawnsTransform.Count - 1; i >= 0; i--)
-        {
-            UnityEngine.GameObject tank = Instantiate(enemyPrefab, spawnsTransform[i].position, spawnsTransform[i].rotation);
+        { 
+            GameObject tank = Instantiate(enemyPrefab, spawnsTransform[i].position, spawnsTransform[i].rotation);
             tank.transform.SetParent(spawnsTransform[i].gameObject.transform);
-            UnityEngine.GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
+            GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
             tankEnemy.Add(tank);
             Destroy(effect, timeDestroyEffect);
         }
+    }
+    protected void ClearEnemy()
+    {
+        for (int i = 0; i < tankEnemy.Count; i++)
+        {
+            if (tankEnemy[i] == null)
+            {
+                tankEnemy.RemoveAt(i);
+            }
+        }
+        if (tankEnemy.Count == 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    private void Update()
+    {
+        ClearEnemy();
     }
 }

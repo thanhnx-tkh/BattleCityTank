@@ -17,6 +17,7 @@ MonoBehaviour:
     id: 1
     name: Phoenix
     price: 2500
+    tankObj: {fileID: 1176883704442227, guid: 31d6f36236eb71a4e92966a546269865, type: 3}
     damage: 200
     maxHealth: 450
     speed: 150
@@ -24,6 +25,7 @@ MonoBehaviour:
     id: 2
     name: Wolf
     price: 2500
+    tankObj: {fileID: 1936290552791220, guid: f7478c3e2e371e94bb98435468b63968, type: 3}
     damage: 250
     maxHealth: 400
     speed: 125
@@ -31,6 +33,7 @@ MonoBehaviour:
     id: 3
     name: Destroyer
     price: 15000
+    tankObj: {fileID: 1691159260009410, guid: e509027ee5f9cc744bf48be86d52aac0, type: 3}
     damage: 500
     maxHealth: 600
     speed: 125
@@ -38,6 +41,7 @@ MonoBehaviour:
     id: 4
     name: Justice
     price: 2000
+    tankObj: {fileID: 1473129626796861, guid: 900e514c1de18614a91bad53c771fb2a, type: 3}
     damage: 200
     maxHealth: 600
     speed: 120
@@ -45,6 +49,7 @@ MonoBehaviour:
     id: 5
     name: Panther
     price: 1000
+    tankObj: {fileID: 1157589265749900, guid: 28bffd97bc58fcd449d9b945c62d7c7c, type: 3}
     damage: 200
     maxHealth: 400
     speed: 125
@@ -52,6 +57,7 @@ MonoBehaviour:
     id: 6
     name: Eagle
     price: 9000
+    tankObj: {fileID: 1588216071557155, guid: 0347745f857a8d74d9242748b0f3e8d7, type: 3}
     damage: 350
     maxHealth: 500
     speed: 130
@@ -59,6 +65,7 @@ MonoBehaviour:
     id: 7
     name: Chaostic
     price: 4000
+    tankObj: {fileID: 1993573243363769, guid: 8a12050f820850a489d337a13587d8df, type: 3}
     damage: 250
     maxHealth: 500
     speed: 125
@@ -66,13 +73,15 @@ MonoBehaviour:
     id: 8
     name: Batman
     price: 3500
+    tankObj: {fileID: 1320373794082653, guid: f98a4c0c22f67a34a9f1fbadb46f09a8, type: 3}
     damage: 200
     maxHealth: 500
     speed: 125
   - sprite: {fileID: 21300000, guid: 40e7f7c506272cb4cb0c87f67d3d58d8, type: 3}
     id: 9
     name: Savior
-    price: 400
+    price: 9000
+    tankObj: {fileID: 1333636833501173, guid: 3709290ab3d260b468325736a2a36616, type: 3}
     damage: 400
     maxHealth: 650
     speed: 100
@@ -80,6 +89,15 @@ MonoBehaviour:
     id: 10
     name: Warrior
     price: 11000
+    tankObj: {fileID: 1895707118592453, guid: 96a42e4cd1cd0bd4882be701ddba70a0, type: 3}
     damage: 300
     maxHealth: 800
+    speed: 100
+  - sprite: {fileID: 21300000, guid: f4f8f41ce5c48e84d8eba0db14ddfb33, type: 2}
+    id: 0
+    name: Starter
+    price: 0
+    tankObj: {fileID: 1784820738568054, guid: 3f8f06b5c817564478f366c0fb3c82a8, type: 3}
+    damage: 100
+    maxHealth: 400
     speed: 100

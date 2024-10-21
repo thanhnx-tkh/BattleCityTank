@@ -12,10 +12,11 @@ public class BaseBullet : GameUnit
     [field: SerializeField] public float Id { get; set; }
     [field: SerializeField] public TypeBullet TypeBullet { get; set; }
     [field: SerializeField] public float Speed { get; set; }
-
+    [SerializeField] protected float dame;
     [SerializeField] private AudioSource audioFire;
     [SerializeField] private Rigidbody rb;
-
+    protected Health health;
+    private Coroutine bullets;
     private void OnDrawGizmosSelected()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,31 +25,14 @@ public class BaseBullet : GameUnit
     private void Start()
     {
         rb.useGravity = false;
+        rb = GetComponent<Rigidbody>();
+        audioFire = GetComponent<AudioSource>();
     }
-    public void OnInit(Vector3 direction)
+    public void OnInit(Vector3 direction, float _dame)
     {
         rb.velocity = direction * Speed;
         audioFire.Play();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // to do : logic Player
-            Debug.Log("Player");
-        }
-        if (other.CompareTag(Const.obstacleTag) || other.CompareTag(Const.borderTag))
-        {
-            // to do : logic Enemy
-            Debug.Log("Obstacle");
-            SimplePool.Despawn(this);
-            
-        }
-        if (other.CompareTag(Const.wallTag))
-        {
-            // to do : logic wall
-            Debug.Log("Wall");
-        }
-    }
+        this.dame = _dame;
 
+    }
 }

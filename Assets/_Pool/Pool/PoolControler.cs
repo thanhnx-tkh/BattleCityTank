@@ -144,7 +144,9 @@ public enum ParticleType
 public enum PoolType
 {
     None,
-
+    bulletPlayer,
+    bulletEnenmy,
+    bulletSolider,
     Bullet_1,
     Bullet_2,
     Bullet_3,

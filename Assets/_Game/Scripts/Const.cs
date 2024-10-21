@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum characterType
+public enum EnemyType
 {
-    Player,
-    Enemy,
+    BasicTank,
+    BasicFastTank,
+    PowerTank,
     Solider
 }
 
@@ -17,8 +18,14 @@ public class Const : MonoBehaviour
     public const string obstacleTag = "Obstacle";
     public const string enemyTag = "Enemy";
     public const string playerTag = "Player";
+    public const string bulletTag = "Bullet";
+    public const string bulletPlayerTag = "BulletPlayer";
+    public const string baseTag = "Base";
 
     //Anim
     public const string runParaname = "run";
     public const string shotParame = "shoot";
+
+    //NameUi
+    public const string uiLose = "Ui_Loser";
 }

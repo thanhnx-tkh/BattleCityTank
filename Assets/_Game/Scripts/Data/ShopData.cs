@@ -33,6 +33,10 @@ public class ShopItemData
 
     [VerticalGroup("Split/Right")]
     [LabelWidth(100)]
+    public GameObject tankObj;
+
+    [VerticalGroup("Split/Right")]
+    [LabelWidth(100)]
     [Range(0, 500)]
     [GUIColor(1f, 0.5f, 0.5f)]
     public float damage;
