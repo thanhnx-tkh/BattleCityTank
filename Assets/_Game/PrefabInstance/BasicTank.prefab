@@ -7415,63 +7415,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2779019554686481221}
   m_LocalEulerAnglesHint: {x: 0.0000059195727, y: -1.6352563e-28, z: -2.2244234e-21}
---- !u!1 &5046380720943629632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2876484529461039023}
-  - component: {fileID: 8165820744486960602}
-  m_Layer: 6
-  m_Name: TankPoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2876484529461039023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5046380720943629632}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8927573604719537819}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8165820744486960602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5046380720943629632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea08375da243a441b88d1e6b0713006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1292158925331792, guid: 915a842e93b5d73459022ddd34a2a49f, type: 3}
-  notification: 3
-  strategy: 0
-  preload: 5
-  capacity: 5
-  recycle: 1
-  persist: 0
-  stamp: 0
-  warnings: 1
-  spawnedClonesList: []
-  despawnedClones: []
-  delays: []
-  deactivatedChild: {fileID: 0}
 --- !u!1 &5727480264890343480
 GameObject:
   m_ObjectHideFlags: 0
@@ -17037,7 +16980,6 @@ Transform:
   - {fileID: 1971197431454165852}
   - {fileID: 8179469235772188769}
   - {fileID: 4182054110986768865}
-  - {fileID: 2876484529461039023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0}
 --- !u!65 &5079765840271636116
@@ -17138,8 +17080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
-  healthPoint: 0
-  healthBar: {fileID: 0}
+  <health>k__BackingField: 0
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []

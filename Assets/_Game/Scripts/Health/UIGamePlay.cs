@@ -14,7 +14,16 @@ public class UIGamePlay : Singleton<UIGamePlay>
     }
     public void UiEnable(string nameUi)
     {
-        GameObject uiLose = gameObjects.Find(name  => name.gameObject.name == nameUi);
-        uiLose.SetActive(true);
+        GameObject uiObject = gameObjects.Find(ui  => ui.name == nameUi);
+        uiObject.SetActive(true);
+        Time.timeScale  = 1.0f;
+    }
+    public void PauseUI()
+    {
+        Time.timeScale = 0f;
+    }
+    public void ContinueGame()
+    {
+        Time.timeScale = 1.0f;
     }
 }
