@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MianMenu : UICanvas
 {
-    public void PlayButton()
+    void Start()
     {
-        UIManager.Ins.OpenUI<GamePlay>();
-        Close(0);
+        
     }
+
 }
