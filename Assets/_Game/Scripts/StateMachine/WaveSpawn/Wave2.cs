@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Wave2 : BaseWave
 {
-    [SerializeField] public List<GameObject> tankEnemy;
     private void Start()
     {
         SpawnEnemy();
@@ -18,6 +17,7 @@ public class Wave2 : BaseWave
             GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
             tankEnemy.Add(tank);
             Destroy(effect, timeDestroyEffect);
+            spawnsTransform.RemoveAt(i);
         }
     }
     protected void ClearEnemy()
@@ -27,6 +27,7 @@ public class Wave2 : BaseWave
             if (tankEnemy[i] == null)
             {
                 tankEnemy.RemoveAt(i);
+                WaveManager.Ins.countWave--;
             }
         }
         if (tankEnemy.Count == 0)
