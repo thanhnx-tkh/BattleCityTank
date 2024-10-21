@@ -19,7 +19,8 @@ public class WaveManager : Singleton<WaveManager>
     }
     public void SettingSpawn()
     {
-        waves[1].gameObject.SetActive(waves[0] == null);
+        if (waves[1] != null)
+            waves[1].gameObject.SetActive(waves[0] == null);
         onWaveChange?.Invoke(countWave, totalWave);
         if (countWave <= 0)
         {
