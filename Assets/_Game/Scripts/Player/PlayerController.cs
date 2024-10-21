@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public enum Direction
 {
@@ -14,9 +15,11 @@ public class PlayerController : BaseCharacter
 {
     [field: SerializeField] public int Id { get; set; }
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private BaseBullet prefabBullet;
+    [SerializeField] private TypeBullet typeBullet;
     [SerializeField] private Transform pointFire;
     [SerializeField] private Animator anim;
+    [SerializeField] private ParticleSystem shotEffect;
+    private BaseBullet prefabBullet;
     private Vector3 mousePosDown;
     private Vector3 mousePosUp;
     private Vector3 directionMove;
@@ -42,23 +45,9 @@ public class PlayerController : BaseCharacter
     private void OnDrawGizmosSelected()
     {
         rb = GetComponent<Rigidbody>();
-        pointFire = GetComponentInChildrenByName<Transform>("FireTransform");
-        anim = GetComponentInChildrenByName<Animator>("Tank");
-    }
-
-    public T GetComponentInChildrenByName<T>(string childName) where T : Component
-    {
-        T[] components = GetComponentsInChildren<T>();
-
-        foreach (T component in components)
-        {
-            if (component.gameObject.name == childName)
-            {
-                return component;
-            }
-        }
-
-        return null; 
+        pointFire = GetChildrenByName.Ins.GetComponentInChildrenByName<Transform>("FireTransform");
+        anim = GetChildrenByName.Ins.GetComponentInChildrenByName<Animator>("Tank");
+        shotEffect = GetChildrenByName.Ins.GetComponentInChildrenByName<ParticleSystem>("WFX_Explosion LandMine");
     }
     public override void Move()
     {
@@ -155,11 +144,12 @@ public class PlayerController : BaseCharacter
         canFire = false;
         yield return new WaitForSeconds(attackSpeed * 0.2f);
         anim.SetTrigger("shoot");
-        BaseBullet bulletPlayer = Instantiate(prefabBullet);
+        shotEffect.Play();
+        prefabBullet = SimplePool.Spawn<BaseBullet>(PoolType.bulletPlayer);
 
-        bulletPlayer.transform.position = pointFire.position;
-        bulletPlayer.transform.rotation = Quaternion.LookRotation(directionMove);
-        bulletPlayer.OnInit(directionMove);
+        prefabBullet.transform.position = pointFire.position;
+        prefabBullet.transform.rotation = Quaternion.LookRotation(directionMove);
+        prefabBullet.OnInit(directionMove,dame);
 
         yield return new WaitForSeconds(attackSpeed * 0.8f);
         canFire = true;
@@ -184,6 +174,15 @@ public class PlayerController : BaseCharacter
         else
         {
             anim.SetFloat("run", 0.0f);
+        }
+    }
+    private void OnTriggerEnter(Collider player)
+    {
+        if (player.CompareTag(Const.bulletTag))
+        {
+            ParticleSystem hit = Instantiate(effectHit,player.transform.position,player.transform.rotation);
+            hit.Play();
+            Destroy(hit,1f);
         }
     }
 }

@@ -1,11 +1,9 @@
-using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : BaseCharacter
 {
-    //[SerializeField] private LeanGameObjectPool pool;
     [SerializeField] private Rigidbody rb;
     [SerializeField] public CheckBox checkBox;
     [SerializeField] public Transform bulletSpawn;
@@ -74,12 +72,20 @@ public class EnemyController : BaseCharacter
     
     public override void Fire()
     {
-        bullet = (BaseBullet)SimplePool.Spawn(BulletManager.Ins.GetBulletType(typeBullet).GetComponent<BaseBullet>(), bulletSpawn.position, bulletSpawn.rotation);
-        bullet.OnInit(transform.forward);
+        bullet = SimplePool.Spawn<BaseBullet>(GetPoolTypeByBulletType());
+        bullet.transform.position = bulletSpawn.position;
+        bullet.transform.rotation = bulletSpawn.rotation;
+        bullet.OnInit(transform.forward,dame);
         rb.velocity = Vector3.zero;
         anim.SetFloat(Const.runParaname, 0f);
         anim.SetTrigger(Const.shotParame);
         bullets = StartCoroutine(DespawnBulelt());
+    }
+    private PoolType GetPoolTypeByBulletType()
+    {
+        if(typeBullet == TypeBullet.Solider)
+            return PoolType.bulletSolider;
+        return PoolType.bulletEnenmy;
     }
     private IEnumerator DespawnBulelt()
     {
@@ -94,5 +100,14 @@ public class EnemyController : BaseCharacter
         currentState = newState;
         if(currentState != null)
             currentState.OnEnter(this);
+    }
+    private void OnTriggerEnter(Collider enemy)
+    {
+        if (enemy.CompareTag(Const.bulletPlayerTag))
+        {
+            ParticleSystem hit = Instantiate(effectHit, enemy.transform.position, enemy.transform.rotation);
+            hit.Play();
+            Destroy(hit, 1f);
+        }
     }
 }

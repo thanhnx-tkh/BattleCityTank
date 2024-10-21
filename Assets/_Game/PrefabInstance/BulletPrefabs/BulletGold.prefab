@@ -2507,10 +2507,10 @@ GameObject:
   - component: {fileID: 136207008434250238}
   - component: {fileID: 54161502911812062}
   - component: {fileID: 82305672563171885}
-  - component: {fileID: 664566873391046521}
+  - component: {fileID: -9167326868039978259}
   m_Layer: 14
   m_Name: BulletGold
-  m_TagString: Untagged
+  m_TagString: BulletPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2727,7 +2727,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &664566873391046521
+--- !u!114 &-9167326868039978259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2736,11 +2736,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828529452341307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dabb8d7594fd4025a93570dafc1fcf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aa25d5a37fa55f499b46c4eaebdb040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolType: 1
   <Id>k__BackingField: 0
   <TypeBullet>k__BackingField: 0
   <Speed>k__BackingField: 5
+  dame: 0
+  particle: {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   audioFire: {fileID: 82305672563171885}
   rb: {fileID: 54161502911812062}

@@ -2505,10 +2505,10 @@ GameObject:
   - component: {fileID: 136220720207789219}
   - component: {fileID: 54504207839024897}
   - component: {fileID: 82636831131277160}
-  - component: {fileID: 7072560582028800357}
+  - component: {fileID: 2835763439959646246}
   m_Layer: 0
   m_Name: BulletRocket
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2676,7 +2676,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7072560582028800357
+--- !u!114 &2835763439959646246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2685,12 +2685,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1595978809024070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dabb8d7594fd4025a93570dafc1fcf0, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bce5f298b9ec4428ef49efbeb0c1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolType: 3
   <Id>k__BackingField: 2
   <TypeBullet>k__BackingField: 2
   <Speed>k__BackingField: 5
+  dame: 0
+  particle: {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   audioFire: {fileID: 82636831131277160}
   rb: {fileID: 54504207839024897}
 --- !u!1 &1648342859750107

@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class TankEnemyBullet : BaseBullet
 {
-    private Health health;
-    private float dame;
-    private UnityEngine.GameObject wall;
-    private void OnTriggerEnter(Collider TankBullet)
+    private Coroutine bullets;
+    private void OnTriggerEnter(Collider bullet)
     {
-        //Debug.Log(TankBullet.gameObject.name);
-        if (TankBullet.CompareTag(Const.playerTag))
+        if (bullet.CompareTag(Const.baseTag) || bullet.CompareTag(Const.playerTag))
         {
-            health = TankBullet.GetComponent<Health>();
-            health.TakeDame(dame);
+            health = bullet.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDame(dame);
+                SimplePool.Despawn(this);
+            }
         }
-        if (TankBullet.CompareTag(Const.wallTag))
+        if (bullet.CompareTag(Const.borderTag))
         {
-            gameObject.SetActive(false);
+            bullets = StartCoroutine(DisableBullet());
         }
+        if (bullet.CompareTag(Const.wallTag) || bullet.CompareTag(Const.obstacleTag))
+        {
+
+            SimplePool.Despawn(this);
+        }
+    }
+    private IEnumerator DisableBullet()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
+        StopCoroutine(bullets);
     }
 }
