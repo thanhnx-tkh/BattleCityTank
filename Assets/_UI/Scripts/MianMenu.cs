@@ -8,6 +8,7 @@ public class MianMenu : UICanvas
 {
     public Button upgradeButton;
     public Button playButton;
+    //public Button playButton;
     public Button giftButton;
 
     public Text textGold;

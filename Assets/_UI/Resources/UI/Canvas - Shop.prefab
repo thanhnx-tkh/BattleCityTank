@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
-  shopData: {fileID: 11400000, guid: 807a11abc081c428b9a768de57980ef1, type: 2}
+  textGold: {fileID: 8936441195727512685}
 --- !u!1 &3445272377514650602
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class DataManager : Singleton<DataManager>
     {
         saveSystem = GetComponent<SaveSystem>();
         playerData = saveSystem.LoadPlayerData();
+        PurchaseTank(1);
     }
     public void SaveGame()
     {

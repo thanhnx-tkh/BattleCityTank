@@ -8,6 +8,24 @@ public class ShopData : ScriptableObject
 {
     [ListDrawerSettings(ShowFoldout = true)]
     public List<ShopItemData> itemDatas;
+
+    public List<ShopItemData> GetTankNotPurchased()
+    {
+        List<ShopItemData> listTankNotPurchased = new List<ShopItemData>();
+
+        for (int i = 0; i < itemDatas.Count; i++)
+        {
+            if (!DataManager.Ins.GetListPurchasedTankById().Contains(itemDatas[i].id))
+            {
+                listTankNotPurchased.Add(itemDatas[i]);
+            }
+        }
+        foreach (var tank in listTankNotPurchased)
+        {
+            Debug.Log("Tank chưa mua: " + tank.id);
+        }
+        return listTankNotPurchased;
+    }
 }
 
 [System.Serializable]

@@ -9,24 +9,28 @@ public class SpawnItemShopUI : MonoBehaviour
     public ItemShopUI prefabItemShopUI;
 
     public List<ItemShopUI> listItemShopUISpawn;
-    private void Start()
+
+    private void OnEnable()
     {
         SpawnItem();
     }
     public void SpawnItem()
     {
-        itemDatas = shopData.itemDatas;
-        if(listItemShopUISpawn != null){
-            for (int i = 0; i < listItemShopUISpawn.Count; i++)
+        itemDatas = shopData.GetTankNotPurchased();
+        if (listItemShopUISpawn.Count != 0)
+        {
+            for (int i = listItemShopUISpawn.Count-1 ; i >= 0; i--)
             {
-                Destroy(listItemShopUISpawn[i].gameObject);
+                ItemShopUI itemShopUI = listItemShopUISpawn[i];
+                listItemShopUISpawn.Remove(itemShopUI);
+                Destroy(itemShopUI.gameObject);
             }
         }
         for (int i = 0; i < itemDatas.Count; i++)
         {
-          ItemShopUI itemShopUISpawn =  Instantiate(prefabItemShopUI,transform);
-          listItemShopUISpawn.Add(itemShopUISpawn);
-          itemShopUISpawn.OnInit(itemDatas[i].id,itemDatas[i].sprite,itemDatas[i].name,itemDatas[i].damage,itemDatas[i].maxHealth,itemDatas[i].speed,itemDatas[i].price);
+            ItemShopUI itemShopUISpawn = Instantiate(prefabItemShopUI, transform);
+            listItemShopUISpawn.Add(itemShopUISpawn);
+            itemShopUISpawn.OnInit(itemDatas[i].id, itemDatas[i].sprite, itemDatas[i].name, itemDatas[i].damage, itemDatas[i].maxHealth, itemDatas[i].speed, itemDatas[i].price);
         }
     }
 }

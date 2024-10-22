@@ -23,8 +23,8 @@ public class GameManager : Singleton<GameManager>
         Input.multiTouchEnabled = true;
 
         ChangeState(GameState.MainMenu);
-        // UIManager.Ins.OpenUI<MianMenu>();
-        // UIManager.Ins.OpenUI<BarMenu>();
+        UIManager.Ins.OpenUI<MianMenu>();
+        UIManager.Ins.OpenUI<BarMenu>();
     }
 
     public static void ChangeState(GameState state)
