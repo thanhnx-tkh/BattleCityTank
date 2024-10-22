@@ -9812,7 +9812,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386986729030269}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9942,7 +9942,9 @@ MonoBehaviour:
   <moveSpeed>k__BackingField: 0
   <dame>k__BackingField: 0
   attackSpeed: 0
-  effectHit: {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
+  effectHit:
+  - {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
+  - {fileID: 198047808942541715, guid: b67c8b837a01c9c48809a8c26eb26c40, type: 3}
   <Id>k__BackingField: 0
   rb: {fileID: 54724612484094970}
   typeBullet: 0
@@ -9963,8 +9965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 0
   <health>k__BackingField: 0
-  healthBar: {fileID: 0}
-  <lifeCount>k__BackingField: 0
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1387146592848407
 GameObject:
   m_ObjectHideFlags: 0
@@ -24661,7 +24664,7 @@ RectTransform:
   m_Father: {fileID: 5817385483696388934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24881,3 +24884,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 0}
+  health: {fileID: 0}

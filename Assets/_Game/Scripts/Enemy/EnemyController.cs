@@ -9,6 +9,7 @@ public class EnemyController : BaseCharacter
     [SerializeField] public Transform bulletSpawn;
     [SerializeField] private Animator anim;
     [SerializeField] private TypeBullet typeBullet;
+    [SerializeField] private GameObject frozenEffect;
     private BaseBullet bullet;
     public Vector3 randomDirection { get; set; }
     public float fireDelayTime;
@@ -20,6 +21,7 @@ public class EnemyController : BaseCharacter
     private Vector3[] direction = new Vector3[] {Vector3.back, Vector3.forward, Vector3.left, Vector3.right };
     private Coroutine move;
     private Coroutine bullets;
+    private Coroutine frozenTime;
     private void Start()
     {
         fireState = new FireState();
@@ -29,6 +31,7 @@ public class EnemyController : BaseCharacter
     private void Update()
     {
         StateControl();
+        Frozen();
     }
     protected void StateControl()
     {
@@ -80,12 +83,32 @@ public class EnemyController : BaseCharacter
         anim.SetFloat(Const.runParaname, 0f);
         anim.SetTrigger(Const.shotParame);
         bullets = StartCoroutine(DespawnBulelt());
+        shotEffect.Play();
     }
     private PoolType GetPoolTypeByBulletType()
     {
         if(typeBullet == TypeBullet.Solider)
             return PoolType.bulletSolider;
         return PoolType.bulletEnenmy;
+    }
+    protected void Frozen()
+    {
+        if (FrozenBonus.Ins.isFrozen)
+        {
+            rb.velocity = Vector3.zero;
+            frozenEffect.SetActive(true);
+            this.enabled = false;
+            frozenTime = StartCoroutine(DeFrozen());
+        }
+    }
+    protected IEnumerator DeFrozen()
+    {
+        yield return new WaitForSeconds(10);
+        frozenEffect.SetActive(false);
+        ResetMove();
+        FrozenBonus.Ins.isFrozen = false;
+        this.enabled = true;
+        StopCoroutine(frozenTime);
     }
     private IEnumerator DespawnBulelt()
     {
@@ -105,9 +128,7 @@ public class EnemyController : BaseCharacter
     {
         if (enemy.CompareTag(Const.bulletPlayerTag))
         {
-            ParticleSystem hit = Instantiate(effectHit, enemy.transform.position, enemy.transform.rotation);
-            hit.Play();
-            Destroy(hit, 1f);
+            Effect();
         }
     }
 }

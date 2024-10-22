@@ -18,7 +18,6 @@ public class PlayerController : BaseCharacter
     [SerializeField] private TypeBullet typeBullet;
     [SerializeField] private Transform pointFire;
     [SerializeField] private Animator anim;
-    [SerializeField] private ParticleSystem shotEffect;
     private BaseBullet prefabBullet;
     private Vector3 mousePosDown;
     private Vector3 mousePosUp;
@@ -42,16 +41,31 @@ public class PlayerController : BaseCharacter
             Move();
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        rb = GetComponent<Rigidbody>();
-        pointFire = GetChildrenByName.Ins.GetComponentInChildrenByName<Transform>("FireTransform");
-        anim = GetChildrenByName.Ins.GetComponentInChildrenByName<Animator>("Tank");
-        shotEffect = GetChildrenByName.Ins.GetComponentInChildrenByName<ParticleSystem>("WFX_Explosion LandMine");
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    rb = GetComponent<Rigidbody>();
+    //    pointFire = GetComponentInChildrenByName<Transform>("FireTransform");
+    //    anim = GetComponentInChildrenByName<Animator>("Tank");
+    //    shotEffect = GetComponentInChildrenByName<ParticleSystem>("WFX_Explosion Small_0");
+    //}
+    //public T GetComponentInChildrenByName<T>(string childName) where T : Component
+    //{
+    //    T[] components = GetComponentsInChildren<T>();
+
+    //    foreach (T component in components)
+    //    {
+    //        if (component.gameObject.name == childName)
+    //        {
+    //            return component;
+    //        }
+    //    }
+
+    //    return null;
+    //}
     public override void Move()
     {
         rb.velocity = directionMove * moveSpeed;
+        anim.SetFloat(Const.runParaname, 0.2f);
     }
     public void GetDirectionMoving()
     {
@@ -89,7 +103,7 @@ public class PlayerController : BaseCharacter
             isMoving = false;
             mousePosDown = Input.mousePosition;
             rb.velocity = Vector3.zero;
-
+            anim.SetFloat(Const.runParaname, 0f);
 
         }
         if (Input.GetMouseButton(0))
@@ -143,7 +157,7 @@ public class PlayerController : BaseCharacter
     {
         canFire = false;
         yield return new WaitForSeconds(attackSpeed * 0.2f);
-        anim.SetTrigger("shoot");
+        anim.SetTrigger(Const.shotParame);
         shotEffect.Play();
         prefabBullet = SimplePool.Spawn<BaseBullet>(PoolType.bulletPlayer);
 
@@ -165,7 +179,7 @@ public class PlayerController : BaseCharacter
     {
         float speedValue = rb.velocity.magnitude;
 
-        anim.SetFloat("run", speedValue);
+        anim.SetFloat(Const.runParaname, speedValue);
 
         if (speedValue > 0.1f)
         {
@@ -180,9 +194,7 @@ public class PlayerController : BaseCharacter
     {
         if (player.CompareTag(Const.bulletTag))
         {
-            ParticleSystem hit = Instantiate(effectHit,player.transform.position,player.transform.rotation);
-            hit.Play();
-            Destroy(hit,1f);
+            Effect();
         }
     }
 }
