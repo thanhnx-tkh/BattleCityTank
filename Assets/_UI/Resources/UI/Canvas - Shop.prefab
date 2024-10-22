@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   textGold: {fileID: 8936441195727512685}
+  backMainMenu: {fileID: 2133705218367111275}
 --- !u!1 &3445272377514650602
 GameObject:
   m_ObjectHideFlags: 0
