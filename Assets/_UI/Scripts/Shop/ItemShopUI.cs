@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemShopUI : MonoBehaviour
 {
+    public float Id;
+    public Button buttonBuyTankById;
     [SerializeField]private Image icon;
     [SerializeField]private Text textName;
     [SerializeField]private Slider sliderDame;
@@ -14,8 +16,13 @@ public class ItemShopUI : MonoBehaviour
     [SerializeField]private Slider sliderSpeed;
     [SerializeField]private Text textSpeed;
     [SerializeField]private Text textPrice;
+    
+    private void Start() {
+        buttonBuyTankById.onClick.AddListener(ButtonBuyTankById);
+    }
 
-    public void OnInit(Sprite icon,string name, float dame, float hp, float speed,float price){
+    public void OnInit(float id, Sprite icon,string name, float dame, float hp, float speed,float price){
+        this.Id = id;
         this.icon.sprite = icon;
         textName.text = name;
         sliderDame.value = dame;
@@ -28,5 +35,9 @@ public class ItemShopUI : MonoBehaviour
         textSpeed.text = speed.ToString();
 
         textPrice.text = price.ToString();
+    }
+    public void ButtonBuyTankById(){
+        UIManager.Ins.CloseAll();
+        UIManager.Ins.OpenUI<ShopDetail>().Id = Id;
     }
 }

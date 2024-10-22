@@ -726,9 +726,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 500
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 13.938004, y: 0}
+  m_AnchoredPosition: {x: 13.938019, y: 0}
   m_SizeDelta: {x: 27.877, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1661226961758517
@@ -1118,7 +1118,7 @@ RectTransform:
   m_GameObject: {fileID: 1813020421599374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
+  m_LocalScale: {x: 0.58000004, y: 0.58000004, z: 0.58000004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 224892816306152009}
@@ -1194,6 +1194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fd6dfcfd257426d871bdf4b1714894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 0
+  buttonBuyTankById: {fileID: 114587316912087457}
   icon: {fileID: 114386625193184095}
   textName: {fileID: 8335069394894614382}
   sliderDame: {fileID: 114355465324949128}
@@ -1718,7 +1720,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 800
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -2144,7 +2146,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 200
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
