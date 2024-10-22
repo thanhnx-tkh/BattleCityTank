@@ -20,12 +20,22 @@ public class ShopData : ScriptableObject
                 listTankNotPurchased.Add(itemDatas[i]);
             }
         }
-        foreach (var tank in listTankNotPurchased)
+        return listTankNotPurchased;
+    }
+    public List<ShopItemData> GetTankPurchased()
+    {
+        List<ShopItemData> listTankNotPurchased = new List<ShopItemData>();
+
+        for (int i = 0; i < itemDatas.Count; i++)
         {
-            Debug.Log("Tank chưa mua: " + tank.id);
+            if (DataManager.Ins.GetListPurchasedTankById().Contains(itemDatas[i].id))
+            {
+                listTankNotPurchased.Add(itemDatas[i]);
+            }
         }
         return listTankNotPurchased;
     }
+
 }
 
 [System.Serializable]
