@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemShopUI : MonoBehaviour
 {
-    public float Id;
+    public int Id;
     public Button buttonBuyTankById;
     [SerializeField]private Image icon;
     [SerializeField]private Text textName;
@@ -21,7 +21,7 @@ public class ItemShopUI : MonoBehaviour
         buttonBuyTankById.onClick.AddListener(ButtonBuyTankById);
     }
 
-    public void OnInit(float id, Sprite icon,string name, float dame, float hp, float speed,float price){
+    public void OnInit(int id, Sprite icon,string name, float dame, float hp, float speed,float price){
         this.Id = id;
         this.icon.sprite = icon;
         textName.text = name;
