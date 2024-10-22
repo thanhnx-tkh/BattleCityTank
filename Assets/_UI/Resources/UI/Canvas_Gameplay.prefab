@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 1512359546379205644}
   - component: {fileID: 8008087739795034856}
   - component: {fileID: 1692490928893954935}
+  - component: {fileID: 4316252104494502541}
   m_Layer: 5
   m_Name: Button_Pause
   m_TagString: Untagged
@@ -307,18 +308,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8709290318383428698}
-        m_TargetAssemblyTypeName: UIGamePlay, Assembly-CSharp
-        m_MethodName: PauseUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+--- !u!114 &4316252104494502541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672419564078514181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01462cf457b45cb41926a8623ab27291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButton: {fileID: 1692490928893954935}
 --- !u!1 &1285528263148161208
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,18 +951,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3237477386436842486}
-        m_TargetAssemblyTypeName: ShieldBonus, Assembly-CSharp
-        m_MethodName: UseShieldBonus
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &3237477386436842486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611c9354702dda244a4c0277cb44f05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldButton: {fileID: 0}
   <isShield>k__BackingField: 0
 --- !u!1 &2276920109555902306
 GameObject:
@@ -1593,7 +1584,7 @@ GameObject:
   - component: {fileID: 2571142754627203670}
   - component: {fileID: 8709290318383428698}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,7 +1611,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1718113974444796053
 Canvas:
   m_ObjectHideFlags: 0
@@ -1696,7 +1687,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bee001f58258e4469ea5091715eb160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDestroyOnClose: 0
+  playerHealth: {fileID: 0}
   gameObjects: []
+  buttons:
+  - {fileID: 1692490928893954935}
+  - {fileID: 3414626318561362974}
+  timeScale: 0
 --- !u!1 &3684504101484224853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2137,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level: 2'
+  m_Text: 'Level: 1'
 --- !u!114 &3559655055635471581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4888,18 +4885,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1077139216934386771}
-        m_TargetAssemblyTypeName: FrozenBonus, Assembly-CSharp
-        m_MethodName: UseFrozenBonus
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1077139216934386771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4913,6 +4898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <isFrozen>k__BackingField: 0
+  frozenButton: {fileID: 0}
 --- !u!1 &5055037855879851290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4925,6 +4911,7 @@ GameObject:
   - component: {fileID: 72282209484818254}
   - component: {fileID: 1660873850571113286}
   - component: {fileID: 3414626318561362974}
+  - component: {fileID: 6937812216409791154}
   m_Layer: 5
   m_Name: Button_Continue
   m_TagString: Untagged
@@ -5047,18 +5034,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8709290318383428698}
-        m_TargetAssemblyTypeName: UIGamePlay, Assembly-CSharp
-        m_MethodName: ContinueGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &6937812216409791154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055037855879851290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fee3076c8bbf94e9de78915bcb5f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 3414626318561362974}
 --- !u!1 &5077160401050537134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,6 +5059,7 @@ GameObject:
   - component: {fileID: 7766153012402430894}
   - component: {fileID: 1596274867291782200}
   - component: {fileID: 1192662725764411138}
+  - component: {fileID: 7914253112329620811}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -5180,19 +5169,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1596274867291782200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2812851355202808348}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: QuitToMainMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: UIGame
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7914253112329620811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077160401050537134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3969aa2c6f26274abe0f556b723924f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainButton: {fileID: 1192662725764411138}
+  scene: UiGame
 --- !u!1 &5261168794794697856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5292,7 +5283,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3102054893922176390}
-  - component: {fileID: 2812851355202808348}
   m_Layer: 5
   m_Name: Group_Menu
   m_TagString: Untagged
@@ -5321,18 +5311,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1425.9678, y: 400.72394}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2812851355202808348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268191033915012933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b86e6d57a58f646817c3d11f8dedfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6611312415364887634
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,22 +4,21 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WaveManager : Singleton<WaveManager>
+public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<BaseWave> waves;
     [SerializeField] private GameObject fireWork;
     public int countWave;
     public int totalWave;
     public UnityEvent<float, float> onWaveChange;
-    private void Awake()
+    public UnityEvent<int> onCountChange;
+    private void Start()
     {
+        UIManager.Ins.OpenUI<UIGamePlay>();
         foreach (Transform wave in transform)
         {
             waves.Add(wave.GetComponent<BaseWave>());
         }
-    }
-    private void Start()
-    {
         waves[0].gameObject.SetActive(true);
         countWave = waves[0].tankEnemy.Count * waves.Count;
         totalWave = waves[0].tankEnemy.Count * waves.Count;
@@ -43,6 +42,7 @@ public class WaveManager : Singleton<WaveManager>
             }
         }
         onWaveChange?.Invoke(countWave, totalWave);
+        onCountChange?.Invoke(countWave);
     }
     private void Update()
     {

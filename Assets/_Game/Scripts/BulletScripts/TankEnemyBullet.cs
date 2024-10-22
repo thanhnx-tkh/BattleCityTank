@@ -15,10 +15,10 @@ public class TankEnemyBullet : BaseBullet
                 health.TakeDame(dame);
                 SimplePool.Despawn(this);
             }
-            if (ShieldBonus.Ins.isShield)
-            {
-                health.TakeDame(0);
-            }
+            //if (ShieldBonus.Ins.isShield)
+            //{
+            //    health.TakeDame(0);
+            //}
         }
         if (bullet.CompareTag(Const.playerTag))
         {

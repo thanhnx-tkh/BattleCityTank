@@ -20,21 +20,18 @@ public class Statue : MonoBehaviour
     }
     private void EnableShield()
     {
-        if (ShieldBonus.Ins.isShield)
-        {
-            shieldOn?.SetActive(true);
-            shieldTime = StartCoroutine(DisableShield());
-        }
+        shieldOn?.SetActive(true);
+        shieldTime = StartCoroutine(DisableShield());
     }
     private IEnumerator DisableShield()
     {
         yield return new WaitForSeconds(10f);
         shieldOn?.SetActive(false);
-        ShieldBonus.Ins.isShield = false;
+        //ShieldBonus.Ins.isShield = false;
         StopCoroutine(shieldTime);
     }
     private void Update()
     {
-        EnableShield();
+        //EnableShield();
     }
 }

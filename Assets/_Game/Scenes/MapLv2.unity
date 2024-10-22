@@ -6670,6 +6670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131}
   - component: {fileID: 4425}
+  - component: {fileID: 4426}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -98814,6 +98815,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21f6e323981ce44bb8f1295b9f14ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavebar: {fileID: 4425}
+  waveManager: {fileID: 929259355838538399}
 --- !u!114 &4680797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99400,6 +99415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed297f9d14b924541a0ed404a645e2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
   player: {fileID: 1784820738568054, guid: 3f8f06b5c817564478f366c0fb3c82a8, type: 3}
   spawnPlayer: {fileID: 582310545}
   lifeText: {fileID: 1352866935}
@@ -100774,6 +100790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8624a3530913e468e8889a9d28f9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
   waves: []
   fireWork: {fileID: 1297692177075210, guid: d5dc8f179549d9d49a56303a00692653, type: 3}
   countWave: 0

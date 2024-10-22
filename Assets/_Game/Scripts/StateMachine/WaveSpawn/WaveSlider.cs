@@ -10,6 +10,7 @@ public class WaveSlider : MonoBehaviour
     private void Start()
     {
         waveManager.onWaveChange.AddListener(UpdateWavebar);
+        waveManager = GameObject.FindGameObjectWithTag(Const.spamWaveTag).GetComponent<WaveManager>();
     }
     public void UpdateWavebar(float wave, float maxWave)
     {

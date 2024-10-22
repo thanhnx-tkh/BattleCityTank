@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Ins { get; private set; }
+    public static T Ins { get; set; }
 
     // Thêm tùy chọn để xác định có muốn giữ đối tượng khi chuyển scene không
     [SerializeField] private bool dontDestroyOnLoad = true;
