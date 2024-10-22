@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,16 +13,28 @@ public class WaveManager : MonoBehaviour
     public int totalWave;
     public UnityEvent<float, float> onWaveChange;
     public UnityEvent<int> onCountChange;
+
+    public static WaveManager Instance {  get; private set; }
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+            Instance = this;
+    }
+
     private void Start()
     {
-        UIManager.Ins.OpenUI<UIGamePlay>();
         foreach (Transform wave in transform)
         {
             waves.Add(wave.GetComponent<BaseWave>());
         }
         waves[0].gameObject.SetActive(true);
-        countWave = waves[0].tankEnemy.Count * waves.Count;
+        countWave = waves[0].gameObject.GetComponent<BaseWave>().tankEnemy.Count * waves.Count;
         totalWave = waves[0].tankEnemy.Count * waves.Count;
+        UnityEngine.Debug.Log(waves[0].tankEnemy.Count);
     }
     public void SettingSpawn()
     {

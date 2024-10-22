@@ -9,8 +9,8 @@ public class WaveSlider : MonoBehaviour
     [SerializeField] private WaveManager waveManager;
     private void Start()
     {
-        waveManager.onWaveChange.AddListener(UpdateWavebar);
         waveManager = GameObject.FindGameObjectWithTag(Const.spamWaveTag).GetComponent<WaveManager>();
+        waveManager.onWaveChange.AddListener(UpdateWavebar);
     }
     public void UpdateWavebar(float wave, float maxWave)
     {

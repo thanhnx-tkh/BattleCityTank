@@ -27,12 +27,4 @@ public class UIGamePlay : UICanvas
         uiObject.SetActive(true);
         Time.timeScale  = 1.0f;
     }
-    private void CheckButton()
-    {
-
-    }
-    private void SetTime()
-    {
-        
-    }
 }

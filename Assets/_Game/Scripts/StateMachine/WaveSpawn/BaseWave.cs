@@ -9,15 +9,14 @@ public class BaseWave : MonoBehaviour
     [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected GameObject effectSpawn;
     [SerializeField] protected float timeDestroyEffect;
-    [SerializeField] protected WaveManager waveManager;
+
     private void Awake()
     {
         SpawnEnemy();
     }
     private void Start()
     {
-        waveManager = GameObject.FindGameObjectWithTag(Const.spamWaveTag).GetComponent<WaveManager>();
-        waveManager.onCountChange?.AddListener(ClearEnemy);
+        
     }
     protected virtual void SpawnEnemy()
     {
@@ -31,14 +30,14 @@ public class BaseWave : MonoBehaviour
             spawnsTransform.RemoveAt(i);
         }
     }
-    protected void ClearEnemy(int countTank)
+    protected void ClearEnemy()
     {
         for (int i = 0; i < tankEnemy.Count; i++)
         {
             if (tankEnemy[i] == null)
             {
                 tankEnemy.RemoveAt(i);
-                countTank--;
+                WaveManager.Instance.countWave--;
             }
         }
         if (tankEnemy.Count == 0)
@@ -48,6 +47,6 @@ public class BaseWave : MonoBehaviour
     }
     private void Update()
     {
-        ClearEnemy(waveManager.countWave);
+        ClearEnemy();
     }
 }

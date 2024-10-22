@@ -199,8 +199,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795}
+  - component: {fileID: 1062468748}
   m_Layer: 0
-  m_Name: FrameRateManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10959,7 +10960,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &796
 Transform:
   m_ObjectHideFlags: 0
@@ -51452,6 +51453,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectHit: {fileID: 1656475330824404, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   hitSound: {fileID: 0}
+--- !u!114 &1062468748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efa501a45e06e149bfa5de9c49dff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1063637328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52111,17 +52124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectHit: {fileID: 1656475330824404, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   hitSound: {fileID: 0}
---- !u!114 &1550273612 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1610598636185565667, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
-  m_PrefabInstance: {fileID: 7475174538120332766}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb9c676601497d45ae253fa5201b615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1552098827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52783,12 +52785,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -52811,11 +52813,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &2120476333
 RectTransform:
@@ -53099,7 +53101,7 @@ PrefabInstance:
     - target: {fileID: 929259356080888896, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 1550273612}
+      objectReference: {fileID: 2128209447}
     - target: {fileID: 929259356080888896, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: waves.Array.data[1]
       value: 
