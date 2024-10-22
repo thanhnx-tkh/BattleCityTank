@@ -5,7 +5,12 @@ using UnityEngine;
 public class DestroyWall : MonoBehaviour
 {
     [SerializeField] private GameObject effectHit;
+    [SerializeField] private AudioSource hitSound;
     private Coroutine walls;
+    private void Start()
+    {
+        hitSound = GameObject.FindGameObjectWithTag("HitSound").GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider wall)
     {
         if (wall.CompareTag(Const.bulletTag) || wall.CompareTag(Const.bulletPlayerTag))
@@ -14,6 +19,7 @@ public class DestroyWall : MonoBehaviour
             //effectHit.transform.SetParent(this.transform);
             Destroy(effect,1f);
             walls = StartCoroutine(DisableWall());
+            hitSound.Play();
         }
     }
     private IEnumerator DisableWall()

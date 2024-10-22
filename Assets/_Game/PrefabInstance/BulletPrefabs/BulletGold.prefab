@@ -2744,6 +2744,7 @@ MonoBehaviour:
   <TypeBullet>k__BackingField: 0
   <Speed>k__BackingField: 5
   dame: 0
-  particle: {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   audioFire: {fileID: 82305672563171885}
   rb: {fileID: 54161502911812062}
+  hitSound: {fileID: 0}
+  smokeEffect: {fileID: 1897011717091062, guid: b67c8b837a01c9c48809a8c26eb26c40, type: 3}

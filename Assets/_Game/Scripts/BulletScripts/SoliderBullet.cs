@@ -7,14 +7,26 @@ public class SoliderBullet : BaseBullet
     private Coroutine bullets;
     private void OnTriggerEnter(Collider bullet)
     {
-        if (bullet.CompareTag(Const.baseTag) || bullet.CompareTag(Const.playerTag))
+        if (bullet.CompareTag(Const.baseTag))
         {
             health = bullet.GetComponent<Health>();
             if (health != null)
             {
                 health.TakeDame(dame);
                 SimplePool.Despawn(this);
-      
+            }
+            if (ShieldBonus.Ins.isShield)
+            {
+                health.TakeDame(0);
+            }
+        }
+        if (bullet.CompareTag(Const.playerTag))
+        {
+            health = bullet.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDame(dame);
+                SimplePool.Despawn(this);
             }
         }
         if (bullet.CompareTag(Const.borderTag))

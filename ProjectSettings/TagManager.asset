@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - Base
   - BulletPlayer
+  - HitSound
   layers:
   - Default
   - TransparentFX
