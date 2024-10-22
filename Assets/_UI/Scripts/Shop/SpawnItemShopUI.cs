@@ -26,7 +26,7 @@ public class SpawnItemShopUI : MonoBehaviour
         {
           ItemShopUI itemShopUISpawn =  Instantiate(prefabItemShopUI,transform);
           listItemShopUISpawn.Add(itemShopUISpawn);
-          itemShopUISpawn.OnInit(itemDatas[i].sprite,itemDatas[i].name,itemDatas[i].damage,itemDatas[i].maxHealth,itemDatas[i].speed,itemDatas[i].price);
+          itemShopUISpawn.OnInit(itemDatas[i].id,itemDatas[i].sprite,itemDatas[i].name,itemDatas[i].damage,itemDatas[i].maxHealth,itemDatas[i].speed,itemDatas[i].price);
         }
     }
 }

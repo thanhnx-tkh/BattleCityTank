@@ -11,8 +11,9 @@ public class SpawnPlayer : Singleton<SpawnPlayer>
     [field: SerializeField] public int lifeCount { get; set; }
     private PlayerHealth playerHealth;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
         playerIns.transform.SetParent(this.transform);
         playerHealth = playerIns.GetComponent<PlayerHealth>();

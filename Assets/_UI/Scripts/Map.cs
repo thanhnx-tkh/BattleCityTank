@@ -8,5 +8,8 @@ public class Map : UICanvas
     {
         
     }
+    private void OnEnable() {
+        transform.SetAsFirstSibling();
+    }
 
 }

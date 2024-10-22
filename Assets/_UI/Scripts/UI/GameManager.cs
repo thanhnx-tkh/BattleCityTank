@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.Events;
-public enum GameState{
+public enum GameState
+{
     MainMenu,
     GamePlay,
     Setting,
-    Win, 
+    Win,
     Lose,
 }
 public class GameManager : Singleton<GameManager>
@@ -15,24 +16,25 @@ public class GameManager : Singleton<GameManager>
 
     private static GameState gameState = GameState.MainMenu;
 
-    // Start is called before the first frame update
-    protected void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
         Input.multiTouchEnabled = true;
 
         ChangeState(GameState.MainMenu);
-        UIManager.Ins.OpenUI<Shop>();
-
+        // UIManager.Ins.OpenUI<MianMenu>();
+        // UIManager.Ins.OpenUI<BarMenu>();
     }
 
     public static void ChangeState(GameState state)
     {
-       gameState = state;
+        gameState = state;
     }
 
     public static bool IsState(GameState state)
     {
-       return gameState == state;
+        return gameState == state;
     }
-  
+
 }

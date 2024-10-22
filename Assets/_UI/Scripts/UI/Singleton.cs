@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T m_Ins;
+    public static T Ins { get; private set; }
 
-    public static T Ins
-    {
-        get
-        {
-            if (m_Ins == null)
+    // Thêm tùy chọn để xác định có muốn giữ đối tượng khi chuyển scene không
+    [SerializeField] private bool dontDestroyOnLoad = true;
+
+    protected virtual void Awake() 
+    { 
+        // Kiểm tra nếu instance đã tồn tại và không phải là instance hiện tại, thì hủy đối tượng này.
+        if (Ins != null && Ins != this as T) 
+        { 
+            Destroy(gameObject); // Hủy đối tượng GameObject chứa instance không cần thiết
+        } 
+        else 
+        { 
+            Ins = this as T;
+            
+            // Chỉ giữ đối tượng nếu biến "dontDestroyOnLoad" được bật
+            if (dontDestroyOnLoad)
             {
-                // Find singleton
-                m_Ins = FindObjectOfType<T>();
-
-                // Create new instance if one doesn't already exist.
-                if (m_Ins == null)
-                {
-                    // Need to create a new GameObject to attach the singleton to.
-                    var singletonObject = new GameObject();
-                    m_Ins = singletonObject.AddComponent<T>();
-                    singletonObject.name = typeof(T).ToString() + " (Singleton)";
-
-                }
-
+                DontDestroyOnLoad(gameObject); // Đảm bảo đối tượng này không bị hủy khi đổi scene
             }
-            return m_Ins;
         }
     }
-
 }
