@@ -34,7 +34,6 @@ public class WaveManager : MonoBehaviour
         waves[0].gameObject.SetActive(true);
         countWave = waves[0].gameObject.GetComponent<BaseWave>().tankEnemy.Count * waves.Count;
         totalWave = waves[0].tankEnemy.Count * waves.Count;
-        UnityEngine.Debug.Log(waves[0].tankEnemy.Count);
     }
     public void SettingSpawn()
     {

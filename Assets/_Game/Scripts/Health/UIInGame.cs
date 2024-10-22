@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIGamePlay : UICanvas
+public class UIInGame : UICanvas
 {
     [SerializeField] private PlayerHealth playerHealth;
     public List<GameObject> gameObjects;
-    [SerializeField] private List<Button> buttons;
     [SerializeField] private float timeScale;
-    private void Awake()
+    private void Start()
     {
         foreach (Transform gameObject in transform)
         {
             gameObjects.Add(gameObject.gameObject);
         }
-    }
-    private void Start()
-    {
         playerHealth = GameObject.FindGameObjectWithTag(Const.playerTag).GetComponent<PlayerHealth>();
         playerHealth.onSpawn?.AddListener(UiEnable);
     }

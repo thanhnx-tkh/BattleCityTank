@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class WaveSlider : MonoBehaviour
 {
     [SerializeField] private Slider wavebar;
-    [SerializeField] private WaveManager waveManager;
+    //[SerializeField] private WaveManager waveManager;
     private void Start()
     {
-        waveManager = GameObject.FindGameObjectWithTag(Const.spamWaveTag).GetComponent<WaveManager>();
-        waveManager.onWaveChange.AddListener(UpdateWavebar);
+        //waveManager = GameObject.FindGameObjectWithTag(Const.spamWaveTag).GetComponent<WaveManager>();
+        WaveManager.Instance.onWaveChange.AddListener(UpdateWavebar);
     }
     public void UpdateWavebar(float wave, float maxWave)
     {

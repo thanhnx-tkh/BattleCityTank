@@ -6,7 +6,7 @@ public class InstanceUI : MonoBehaviour
 {
     void Start()
     {
-        UIManager.Ins.OpenUI<UIGamePlay>();
+        UIManager.Ins.OpenUI<UIInGame>();
     }
 
 }

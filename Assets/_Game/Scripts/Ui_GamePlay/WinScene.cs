@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ButtonListener : MonoBehaviour
+public class WinScene : UICanvas
 {
     [SerializeField] private Button mainButton;
     [SerializeField] private string scene;
