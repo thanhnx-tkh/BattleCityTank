@@ -11,6 +11,8 @@ public class SpawnPlayer : MonoBehaviour
     [field: SerializeField] public int lifeCount { get; set; }
     private PlayerHealth playerHealth;
     public UnityEvent<int> onLifeChange;
+    public UnityEvent<string> onSpawn;
+
 
     public static SpawnPlayer _ins;
 
@@ -25,6 +27,10 @@ public class SpawnPlayer : MonoBehaviour
     }
     protected void Start()
     {
+        FirstSpawn();
+    }
+    public void FirstSpawn()
+    {
         GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
         playerIns.transform.SetParent(this.transform);
         playerHealth = playerIns.GetComponent<PlayerHealth>();
@@ -35,13 +41,15 @@ public class SpawnPlayer : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                FirstSpawn();
                 playerHealth.health = playerHealth.maxHealth;
-                GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
-                playerIns.transform.SetParent(this.transform);
                 lifeCount--;
                 onLifeChange?.Invoke(lifeCount);
+
             }
         }
+        if (playerHealth.isDead &&  lifeCount <= 0)
+            onSpawn?.Invoke(Const.uiLose);
     }
     private void Update()
     {
