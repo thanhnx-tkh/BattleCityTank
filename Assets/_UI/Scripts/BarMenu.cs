@@ -34,7 +34,6 @@ public class BarMenu : UICanvas
     {
         //UIManager.Ins.CloseAll();
         //UIManager.Ins.OpenUI<Event>();
-        SceneManager.LoadScene("MapLv1");
     }
     public void HomeButton()
     {

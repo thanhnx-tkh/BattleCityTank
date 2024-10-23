@@ -11,7 +11,8 @@ public class DataManager : Singleton<DataManager>
     {
         saveSystem = GetComponent<SaveSystem>();
         playerData = saveSystem.LoadPlayerData();
-        //PurchaseTank(3);
+        Observer.Notify("UpdateUI");
+        UpdateMoney(1000000);
     }
     public void SaveGame()
     {
@@ -88,7 +89,7 @@ public class DataManager : Singleton<DataManager>
         LoadData();
         return playerData.purchasedTankIds;
     }
-    public float GetTankLevelbyId(int id)
+    public int GetTankLevelbyId(int id)
     {
         LoadData();
         int index = playerData.purchasedTankIds.IndexOf(id);
@@ -104,6 +105,12 @@ public class DataManager : Singleton<DataManager>
     {
         LoadData();
         return playerData.currentMoney;
+    }
+
+    public List<int> GetUnlockLevel()
+    {
+        LoadData();
+        return playerData.unlockedLevels;
     }
 
     public float GetCurrentScore()

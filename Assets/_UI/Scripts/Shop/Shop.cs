@@ -13,6 +13,7 @@ public class Shop : UICanvas
         Observer.AddObserver("UpdateUI", UpdateTextGold);
     }
     private void OnEnable() {
+        Observer.Notify("UpdateUI");
         textGold.text = DataManager.Ins.GetCurrentMoney().ToString();
     }
     private void UpdateTextGold(object[] datas)

@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class MianMenu : UICanvas
 {
     public Button upgradeButton;
+    public Button shopButton;
     public Button playButton;
-    //public Button playButton;
     public Button giftButton;
 
     public Text textGold;
@@ -18,6 +18,7 @@ public class MianMenu : UICanvas
         upgradeButton.onClick.AddListener(UpgradeButton);
         playButton.onClick.AddListener(PlayButton);
         giftButton.onClick.AddListener(GiftButton);
+        shopButton.onClick.AddListener(ShopButton);
 
         Observer.AddObserver("UpdateUI", UpdateTextGold);
         Observer.AddObserver("UpdateUI", UpdateTextScore);
@@ -25,6 +26,7 @@ public class MianMenu : UICanvas
     }
     private void OnEnable()
     {
+        Observer.Notify("UpdateUI");
         transform.SetAsFirstSibling();
     }
     private void UpdateTextGold(object[] datas)
@@ -43,13 +45,17 @@ public class MianMenu : UICanvas
     public void PlayButton()
     {
         UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<Upgrade>();
+        UIManager.Ins.OpenUI<PlayGame>();
+    }
+    public void ShopButton()
+    {
+        UIManager.Ins.CloseAll();
+        UIManager.Ins.OpenUI<Shop>();
     }
 
     public void GiftButton()
     {
-        //UIManager.Ins.CloseAll();
-        //UIManager.Ins.OpenUI<Upgrade>();
+
     }
 
     public void OnDestroy()

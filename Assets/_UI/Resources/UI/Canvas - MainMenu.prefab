@@ -720,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   upgradeButton: {fileID: 8112681431602459812}
+  shopButton: {fileID: 6674199346579961746}
   playButton: {fileID: 6532737655957810534}
   giftButton: {fileID: 53942378861409278}
   textGold: {fileID: 6435302805928260428}

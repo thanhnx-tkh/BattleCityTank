@@ -8,7 +8,6 @@ public class Upgrade : UICanvas
     public ShopData shopDatas;
     public Model3D model3D;
     [SerializeField] GameObject parentModel3D;
-
     [SerializeField] Text nameTank;
     [SerializeField] Text coinTextPlayer;
     [SerializeField] Text coinTextUpdate;
@@ -32,16 +31,18 @@ public class Upgrade : UICanvas
     [SerializeField] Text textLevel;
     private GameObject currentTank;
     private float speedRotate = 20;
-
-    private int currentId = 1;
-    private int currentLevel;
+    private int currentId = 0;
+    private List<int> listPurchasedTankId;
     // Start is called before the first frame update
     void Start()
     {
-        SetData(currentId);
-        InstantiateModel3D(currentId);
+        listPurchasedTankId = DataManager.Ins.GetListPurchasedTankById();
+ 
+        SetData(listPurchasedTankId[0]);
+        InstantiateModel3D(listPurchasedTankId[0]);
+
         btnPlayNow.onClick.AddListener(PlayNow);
-        btnUpdateTank.onClick.AddListener(() => UpdateTank(currentId));
+        btnUpdateTank.onClick.AddListener(() => UpdateTank(listPurchasedTankId[currentId]));
         btnBack.onClick.AddListener(Back);
         btnPurchase.onClick.AddListener(Purchase);
         changeTankLeft.onClick.AddListener(OnClickChangeTankLeft);
@@ -56,113 +57,87 @@ public class Upgrade : UICanvas
 
     private void InstantiateModel3D(int currentId)
     {
-        GameObject modelTank = Instantiate(model3D.GetModel3D(currentId), parentModel3D.transform);
+        GameObject modelTank = Instantiate(model3D.GetModel3D(listPurchasedTankId[currentId]), parentModel3D.transform);
         modelTank.transform.localPosition = Vector3.zero;
         modelTank.transform.localRotation = Quaternion.identity;
-        modelTank.transform.localScale = model3D.GetScaleModel3D(currentId);
+        modelTank.transform.localScale = model3D.GetScaleModel3D(listPurchasedTankId[currentId]);
         currentTank = modelTank;
 
     }
 
     private void OnClickChangeTankLeft()
     {
-        if (currentId > 1)
+        if (currentId > 0)
         {
             //Destroy currentTank
             Destroy(currentTank);
             //Show previous tank
             currentId -= 1;
-            SetData(currentId);
+            SetData(listPurchasedTankId[currentId]);
             InstantiateModel3D(currentId);
         }
     }
 
     private void OnClickChangeTankRight()
     {
-        if (currentId < model3D.itemDatas.Count)
+        if (currentId < listPurchasedTankId.Count - 1)
         {
             //Destroy currentTank
             Destroy(currentTank);
             //Show next tank
             currentId += 1;
-            SetData(currentId);
+            SetData(listPurchasedTankId[currentId]);
             InstantiateModel3D(currentId);
         }
     }
 
     private void SetData(int id)
     {
-        currentId = id;
-        var tank = shopDatas.itemDatas[id+-1];
-
+        var tank = shopDatas.itemDatas[id];
+        int lvById = DataManager.Ins.GetTankLevelbyId(id);
         nameTank.text = tank.name;
         //text coin top
-        coinTextPlayer.text = "100";
+        coinTextPlayer.text = DataManager.Ins.GetCurrentMoney().ToString();
         //text coin update
-        coinTextUpdate.text = "2";
+        coinTextUpdate.text =  (lvById * 500).ToString();
         //max dame 500
-        sliderDame.value = tank.damage;
-        textDame.text = $"{tank.damage}";
+        sliderDame.value = tank.damage + (lvById * 10);
+        textDame.text = $"{tank.damage + (lvById * 10)}";
         //max hp 800
-        sliderHp.value = tank.maxHealth;
-        textHp.text = $"{tank.maxHealth}";
+        sliderHp.value = tank.maxHealth + (lvById * 10);
+        textHp.text = $"{tank.maxHealth + (lvById * 10)}";
         //max speed 200
-        sliderSpeed.value = tank.speed; ;
-        textSpeed.text = $"{tank.speed}";
+        sliderSpeed.value = tank.speed + (lvById * 10); ;
+        textSpeed.text = $"{tank.speed + (lvById * 10)}";
         //max level = 10
-        sliderLevel.value = currentLevel;
-        textLevel.text = $"Lv.{currentLevel}";
+        sliderLevel.value = DataManager.Ins.GetTankLevelbyId(listPurchasedTankId[currentId]);
+        textLevel.text = $"Lv.{DataManager.Ins.GetTankLevelbyId(listPurchasedTankId[currentId])}";
     }
 
     public void UpdateTank(int id)
     {
-
-        var tank = shopDatas.itemDatas[id];
-        //max dame 500
-        if (sliderDame.value <= sliderDame.maxValue)
+        int level = DataManager.Ins.GetTankLevelbyId(id);
+        int coinUpdate = DataManager.Ins.GetTankLevelbyId(id) * 500;
+        int moneyLeft = DataManager.Ins.GetCurrentMoney();
+        if (level < 10 && moneyLeft > coinUpdate)
         {
-            sliderDame.value = tank.damage + 100;
-            textDame.text = $"{tank.damage + 100}";
-        }
-        else
-        {
-            sliderDame.value = sliderDame.maxValue;
-        }
-        if (sliderHp.value <= sliderHp.maxValue)
-        {
-            //max hp 800
-            sliderHp.value = tank.maxHealth + 100;
-            textHp.text = $"{tank.maxHealth + 100}";
-        }
-        else
-        {
-            sliderHp.value = sliderHp.maxValue;
-        }
-        if (sliderSpeed.value <= sliderSpeed.maxValue)
-        {
-            //max speed 200
-            sliderSpeed.value = tank.speed + 100; ;
-            textSpeed.text = $"{tank.speed + 100}";
-        }
-        else
-        {
-            sliderSpeed.value = sliderSpeed.maxValue;
-        }
-        //max level = 10
-        if (sliderLevel.value <= 10)
-        {
-            sliderLevel.value = currentLevel + 1;
-            textLevel.text = $"Lv.{currentLevel + 1}";
+            DataManager.Ins.UpgradeTank(id);
+            DataManager.Ins.UpdateMoneyBuyTank(coinUpdate);
+            SetData(id);
         }
     }
 
     public void Back()
     {
-        Debug.Log("Back");
+        Close(0);
+        UIManager.Ins.OpenUI<MianMenu>();
+        UIManager.Ins.OpenUI<BarMenu>();
     }
     public void PlayNow()
     {
-        Debug.Log("Play");
+        Close(0);
+        LevelManager.Ins.currentLevel = DataManager.Ins.GetUnlockLevel()[DataManager.Ins.GetUnlockLevel().Count-1];
+        UIManager.Ins.OpenUI<PlayGame>();
     }
 
     public void Purchase()
@@ -170,10 +145,4 @@ public class Upgrade : UICanvas
         Debug.Log("Purchase");
     }
 
-    private void UpdateCoin(int playerCoin, int updateCoin)
-    {
-        playerCoin -= updateCoin;
-        coinTextPlayer.text = playerCoin.ToString();
-        coinTextUpdate.text = updateCoin.ToString();
-    }
 }
