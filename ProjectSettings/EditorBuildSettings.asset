@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/MapLv1.unity
     guid: d412a86e0c3ad444cb4b0dbe6eafeb21
   - enabled: 1
-    path: Assets/_Game/Scenes/SceneLost.unity
+    path: Assets/_Game/Scenes/SceneLose.unity
     guid: 5081da5b9783c6b4eae936d0c13bd540
   - enabled: 1
     path: Assets/_Game/Scenes/SceneVictory.unity
