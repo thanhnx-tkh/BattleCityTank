@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BackToMenu : UICanvas
+public class UIScneneWin : UICanvas
 {
     [SerializeField] private Button mainButton;
     [SerializeField] private string scene;

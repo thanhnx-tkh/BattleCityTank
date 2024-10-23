@@ -53092,6 +53092,10 @@ PrefabInstance:
       propertyPath: spawnsTransform.Array.data[3]
       value: 
       objectReference: {fileID: 1972890534}
+    - target: {fileID: 3206108049287242995, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3290033053618034031, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: effectSpawn
       value: 
@@ -53174,7 +53178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8589159182871632269, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 94042823894892454, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
