@@ -18,9 +18,11 @@ public class Map : UICanvas
             itemMaps[i].indexLevel = i;
             if(DataManager.Ins.GetUnlockLevel().Contains(i)){
                 itemMaps[i].Unlock();
+                itemMaps[i].isLock = false;
             }
             else{
                 itemMaps[i].Lock(); 
+                itemMaps[i].isLock = true;
             }
         }
     }

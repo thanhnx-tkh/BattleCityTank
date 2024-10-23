@@ -10,6 +10,7 @@ public class ItemMap : MonoBehaviour
     public GameObject lockObj;
     public GameObject unlockObj;
     public Button buttonPlayByLevel;    
+    public bool isLock;
     private void Start() {
         buttonPlayByLevel.onClick.AddListener(ButtonPlayByLevel);
     }
@@ -23,6 +24,7 @@ public class ItemMap : MonoBehaviour
         textLevel.text = (indexLevel+1).ToString();
     }
     public void ButtonPlayByLevel(){
+        if(isLock) return;
         LevelManager.Ins.currentLevel = indexLevel;
         UIManager.Ins.CloseAll();
         UIManager.Ins.OpenUI<PlayGame>();

@@ -119,7 +119,7 @@ public class Upgrade : UICanvas
         int level = DataManager.Ins.GetTankLevelbyId(id);
         int coinUpdate = DataManager.Ins.GetTankLevelbyId(id) * 500;
         int moneyLeft = DataManager.Ins.GetCurrentMoney();
-        if (level < 10 && moneyLeft > coinUpdate)
+        if (level < 10 && moneyLeft >= coinUpdate)
         {
             DataManager.Ins.UpgradeTank(id);
             DataManager.Ins.UpdateMoneyBuyTank(coinUpdate);

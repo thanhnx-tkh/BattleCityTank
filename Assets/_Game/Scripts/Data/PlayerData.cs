@@ -15,9 +15,9 @@ public class PlayerData
     {
         purchasedTankIds = new List<int>{0};
         tankLevels = new List<int>{1};
-        unlockedLevels = new List<int>();
-        starLevels = new List<int>();
-        currentMoney = 0;
+        unlockedLevels = new List<int>{0};
+        starLevels = new List<int>{};
+        currentMoney = 5000;
         currentScore = 0;
     }
 }

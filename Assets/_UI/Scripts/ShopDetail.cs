@@ -42,14 +42,14 @@ public class ShopDetail : UICanvas
 
     private void SetData()
     {
-        var tank = shopDatas.itemDatas[Id-1];
+        var tank = shopDatas.itemDatas[Id];
         nameTank.text = tank.name;
         //max dame 500
         sliderDame.value = tank.damage;
         textDame.text = $"{tank.damage}";
         //max hp 800
         sliderHp.value = tank.maxHealth;
-        textHp.text = $"{tank.maxHealth}";
+        textHp.text = $"{tank.maxHealth}";  
         //max speed 200
         sliderSpeed.value = tank.speed; ;
         textSpeed.text = $"{tank.speed}";
@@ -73,7 +73,7 @@ public class ShopDetail : UICanvas
 
     private void ButtonBuyShop()
     {
-        int price =(int)shopDatas.itemDatas[Id-1].price;
+        int price =(int)shopDatas.itemDatas[Id].price;
         if(DataManager.Ins.GetCurrentMoney() - price < 0) return;
         DataManager.Ins.UpdateMoneyBuyTank(price);
         Close(0);

@@ -10,9 +10,9 @@ public class DataManager : Singleton<DataManager>
     private void Start()
     {
         saveSystem = GetComponent<SaveSystem>();
-        playerData = saveSystem.LoadPlayerData();
+        LoadData();
+        SaveGame();
         Observer.Notify("UpdateUI");
-        UpdateMoney(1000000);
     }
     public void SaveGame()
     {

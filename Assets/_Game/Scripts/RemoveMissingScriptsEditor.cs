@@ -1,75 +1,75 @@
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
+// using System.Collections.Generic;
+// using System.Linq;
+// using UnityEditor;
+// using UnityEngine;
 
-public static class RemoveMissingScriptsEditor
-{
-    [MenuItem("GameObject/Editor Extensions/Remove Missing Scripts")]
-    private static void FindAndRemoveMissingInSelected()
-    {
-        UnityEngine.GameObject[] allObjects = GetAllChildren(Selection.gameObjects);
-        int count = RemoveMissingScriptsFrom(allObjects);
-        if (count == 0) return;
-        EditorUtility.DisplayDialog("Remove Missing Scripts", $"Removed {count} missing scripts.\n\nCheck console for details", "ok");
-    }
+// public static class RemoveMissingScriptsEditor
+// {
+//     [MenuItem("GameObject/Editor Extensions/Remove Missing Scripts")]
+//     private static void FindAndRemoveMissingInSelected()
+//     {
+//         UnityEngine.GameObject[] allObjects = GetAllChildren(Selection.gameObjects);
+//         int count = RemoveMissingScriptsFrom(allObjects);
+//         if (count == 0) return;
+//         EditorUtility.DisplayDialog("Remove Missing Scripts", $"Removed {count} missing scripts.\n\nCheck console for details", "ok");
+//     }
 
-    [MenuItem("Assets/Editor Extensions/Remove Missing Scripts")]
-    private static void FindAndRemoveMissingInSelectedAssets()
-    {
-        FindAndRemoveMissingInSelected();
-    }
+//     [MenuItem("Assets/Editor Extensions/Remove Missing Scripts")]
+//     private static void FindAndRemoveMissingInSelectedAssets()
+//     {
+//         FindAndRemoveMissingInSelected();
+//     }
 
-    [MenuItem("Assets/Editor Extensions/Remove Missing Scripts", true)]
-    private static bool FindAndRemoveMissingInSelectedAssetsValidate()
-    {
-        return Selection.objects.OfType<BaseBullet>().Any();
-    }
+//     [MenuItem("Assets/Editor Extensions/Remove Missing Scripts", true)]
+//     private static bool FindAndRemoveMissingInSelectedAssetsValidate()
+//     {
+//         return Selection.objects.OfType<BaseBullet>().Any();
+//     }
 
-    [MenuItem("Tools/Editor Extensions/Remove Missing Scripts From Prefabs")]
-    private static void RemoveFromPrefabs()
-    {
-        string[] allPrefabGuids = AssetDatabase.FindAssets("t:Prefab");
-        IEnumerable<string> allPrefabsPath = allPrefabGuids.Select(AssetDatabase.GUIDToAssetPath);
-        IEnumerable<UnityEngine.GameObject> allPrefabsObjects = allPrefabsPath.Select(AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>);
-        RemoveMissingScriptsFrom(allPrefabsObjects.ToArray());
-        Debug.Log($"Removed All Missing Scripts from Prefabs");
-    }
+//     [MenuItem("Tools/Editor Extensions/Remove Missing Scripts From Prefabs")]
+//     private static void RemoveFromPrefabs()
+//     {
+//         string[] allPrefabGuids = AssetDatabase.FindAssets("t:Prefab");
+//         IEnumerable<string> allPrefabsPath = allPrefabGuids.Select(AssetDatabase.GUIDToAssetPath);
+//         IEnumerable<UnityEngine.GameObject> allPrefabsObjects = allPrefabsPath.Select(AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>);
+//         RemoveMissingScriptsFrom(allPrefabsObjects.ToArray());
+//         Debug.Log($"Removed All Missing Scripts from Prefabs");
+//     }
 
-    private static int RemoveMissingScriptsFrom(params UnityEngine.GameObject[] objects)
-    {
-        List<UnityEngine.GameObject> forceSave = new();
-        int removedCounter = 0;
-        foreach (UnityEngine.GameObject current in objects)
-        {
-            if (current == null) continue;
+//     private static int RemoveMissingScriptsFrom(params UnityEngine.GameObject[] objects)
+//     {
+//         List<UnityEngine.GameObject> forceSave = new();
+//         int removedCounter = 0;
+//         foreach (UnityEngine.GameObject current in objects)
+//         {
+//             if (current == null) continue;
 
-            int missingCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(current);
-            if (missingCount == 0) continue;
+//             int missingCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(current);
+//             if (missingCount == 0) continue;
 
-            GameObjectUtility.RemoveMonoBehavioursWithMissingScript(current);
-            EditorUtility.SetDirty(current);
+//             GameObjectUtility.RemoveMonoBehavioursWithMissingScript(current);
+//             EditorUtility.SetDirty(current);
 
-            if (EditorUtility.IsPersistent(current) && PrefabUtility.IsAnyPrefabInstanceRoot(current)) forceSave.Add(current);
+//             if (EditorUtility.IsPersistent(current) && PrefabUtility.IsAnyPrefabInstanceRoot(current)) forceSave.Add(current);
 
-            Debug.Log($"Removed {missingCount} Missing Scripts from {current.gameObject.name}", current);
-            removedCounter += missingCount;
-        }
+//             Debug.Log($"Removed {missingCount} Missing Scripts from {current.gameObject.name}", current);
+//             removedCounter += missingCount;
+//         }
 
-        foreach (UnityEngine.GameObject o in forceSave) PrefabUtility.SavePrefabAsset(o);
+//         foreach (UnityEngine.GameObject o in forceSave) PrefabUtility.SavePrefabAsset(o);
 
-        return removedCounter;
-    }
+//         return removedCounter;
+//     }
 
-    private static UnityEngine.GameObject[] GetAllChildren(UnityEngine.GameObject[] selection)
-    {
-        List<Transform> t = new();
+//     private static UnityEngine.GameObject[] GetAllChildren(UnityEngine.GameObject[] selection)
+//     {
+//         List<Transform> t = new();
 
-        foreach (UnityEngine.GameObject o in selection)
-        {
-            t.AddRange(o.GetComponentsInChildren<Transform>(true));
-        }
+//         foreach (UnityEngine.GameObject o in selection)
+//         {
+//             t.AddRange(o.GetComponentsInChildren<Transform>(true));
+//         }
 
-        return t.Distinct().Select(x => x.gameObject).ToArray();
-    }
-}
+//         return t.Distinct().Select(x => x.gameObject).ToArray();
+//     }
+// }
