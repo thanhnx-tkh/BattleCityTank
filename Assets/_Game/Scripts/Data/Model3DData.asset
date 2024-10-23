@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Model3DData
   m_EditorClassIdentifier: Assembly-CSharp::Model3D
   itemDatas:
+  - id: 0
+    name: Starter
+    gameObject3D: {fileID: 1191289154502686, guid: 43cfcdde67ce19d4da0861b7bca6c3ec, type: 3}
+    scale: {x: 35, y: 35, z: 35}
   - id: 1
     name: Phoenix
     gameObject3D: {fileID: 1465824024282964, guid: 3faf04aa3f005da4287642cd3218c108, type: 3}
