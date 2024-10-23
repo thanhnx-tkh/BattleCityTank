@@ -11,7 +11,7 @@ public class BarMenu : UICanvas
     public Button eventsButton;
     public Button homeButton;
     [SerializeField] Animator anim;
-    public string animName = "Home";
+    private string animName = "Home";
 
 
     private void Start()
@@ -41,17 +41,19 @@ public class BarMenu : UICanvas
     {
 
         ChangeAnim("Idle");
-        UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<Map>();
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
         UIManager.Ins.OpenUI<BarMenu>();
+        UIManager.Ins.OpenUI<Map>();
         ChangeAnim("Map");
     }
     public void ShopButton()
     {
         ChangeAnim("Idle");
-        UIManager.Ins.CloseAll();
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.CloseUI<BarMenu>();
         UIManager.Ins.OpenUI<Shop>();
-        UIManager.Ins.OpenUI<BarMenu>();
         ChangeAnim("Shop");
     }
     public void EventsButton()
@@ -66,9 +68,10 @@ public class BarMenu : UICanvas
     {
         
         ChangeAnim("Idle");
-        UIManager.Ins.CloseAll();
-        UIManager.Ins.OpenUI<MianMenu>();
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
         UIManager.Ins.OpenUI<BarMenu>();
+        UIManager.Ins.OpenUI<MianMenu>();
 
         ChangeAnim("Home");
     }

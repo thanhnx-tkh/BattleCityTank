@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class Shop : UICanvas
         Observer.AddObserver("UpdateUI", UpdateTextGold);
     }
     private void OnEnable() {
+        transform.SetAsLastSibling();
         Observer.Notify("UpdateUI");
         textGold.text = DataManager.Ins.GetCurrentMoney().ToString();
     }
@@ -25,7 +27,7 @@ public class Shop : UICanvas
         Observer.RemoveObserver("UpdateUI", UpdateTextGold);
     }
     public void BackMainMenu(){
-        UIManager.Ins.CloseAll();
+        Close(0);
         UIManager.Ins.OpenUI<MianMenu>();
         UIManager.Ins.OpenUI<BarMenu>();
     }

@@ -13,6 +13,8 @@ public class DataManager : Singleton<DataManager>
         LoadData();
         SaveGame();
         Observer.Notify("UpdateUI");
+        LevelManager.Ins.currentTankId = GetListPurchasedTankById()[GetListPurchasedTankById().Count - 1];
+
     }
     public void SaveGame()
     {

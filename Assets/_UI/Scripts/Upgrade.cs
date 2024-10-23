@@ -136,6 +136,7 @@ public class Upgrade : UICanvas
     public void PlayNow()
     {
         Close(0);
+        LevelManager.Ins.currentTankId = listPurchasedTankId[currentId];
         LevelManager.Ins.currentLevel = DataManager.Ins.GetUnlockLevel()[DataManager.Ins.GetUnlockLevel().Count-1];
         UIManager.Ins.OpenUI<PlayGame>();
     }

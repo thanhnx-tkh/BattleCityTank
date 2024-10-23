@@ -548,13 +548,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fa0c35f76b044c7803e67937f4e0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDestroyOnClose: 0
+  IsDestroyOnClose: 1
   mapButton: {fileID: 1557868379936531201}
   shopButton: {fileID: 5442153419838176745}
   eventsButton: {fileID: 4561773385435658477}
   homeButton: {fileID: 7642459863719631677}
   anim: {fileID: 7268983455324297386}
-  animName: Home
 --- !u!95 &7268983455324297386
 Animator:
   serializedVersion: 5

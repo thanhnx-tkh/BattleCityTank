@@ -7,10 +7,12 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
-        // Lấy đường dẫn persistentDataPath, đảm bảo quyền truy cập
-        //string directoryPath = Application.persistentDataPath;
-        string directoryPath = Application.dataPath;
-        // Kiểm tra và tạo thư mục nếu chưa tồn tại
+        #if UNITY_EDITOR
+            string directoryPath = Application.dataPath;  // Đường dẫn dễ tìm trong Editor
+        #else
+            string directoryPath = Application.persistentDataPath;  // Đường dẫn khi chạy trên Android
+        #endif
+        
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);

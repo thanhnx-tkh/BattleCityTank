@@ -39,17 +39,17 @@ public class MianMenu : UICanvas
     }
     public void UpgradeButton()
     {
-        UIManager.Ins.CloseAll();
+        Close(0);
         UIManager.Ins.OpenUI<Upgrade>();
     }
     public void PlayButton()
     {
-        UIManager.Ins.CloseAll();
+        Close(0);
         UIManager.Ins.OpenUI<PlayGame>();
     }
     public void ShopButton()
     {
-        UIManager.Ins.CloseAll();
+        Close(0);
         UIManager.Ins.OpenUI<Shop>();
     }
 
