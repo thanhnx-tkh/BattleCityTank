@@ -22,6 +22,7 @@ public class Const : MonoBehaviour
     public const string bulletPlayerTag = "BulletPlayer";
     public const string baseTag = "Base";
     public const string spamWaveTag = "SpamWave";
+    public const string spawnPlayerTag = "SpawnPlayer";
 
     //Anim
     public const string runParaname = "run";

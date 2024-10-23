@@ -10,7 +10,7 @@ public class PlayerHealth : Health
     {
         if(isDead)
             Destroy(gameObject);
-        if (SpawnPlayer.Ins.lifeCount <= 0 )
+        if (SpawnPlayer._ins.lifeCount <= 0 )
             onSpawn?.Invoke(Const.uiLose);
     }
 }

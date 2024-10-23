@@ -7,7 +7,7 @@ public class SceneWin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIManager.Ins.OpenUI<WinScene>();
+        UIManager.Ins.OpenUI<BackToMenu>();
     }
 
 

@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class SpawnPlayer : Singleton<SpawnPlayer>
+public class SpawnPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Transform spawnPlayer;
-    [SerializeField] private Text lifeText;
     [field: SerializeField] public int lifeCount { get; set; }
     private PlayerHealth playerHealth;
+    public UnityEvent<int> onLifeChange;
 
-    protected override void Awake()
+    public static SpawnPlayer _ins;
+
+    private void Awake()
     {
-        base.Awake();
+        if (_ins != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+            _ins = this;
+    }
+    protected void Start()
+    {
         GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
         playerIns.transform.SetParent(this.transform);
         playerHealth = playerIns.GetComponent<PlayerHealth>();
@@ -28,7 +39,7 @@ public class SpawnPlayer : Singleton<SpawnPlayer>
                 GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
                 playerIns.transform.SetParent(this.transform);
                 lifeCount--;
-                lifeText.text = lifeCount.ToString();
+                onLifeChange?.Invoke(lifeCount);
             }
         }
     }
