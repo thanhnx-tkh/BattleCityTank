@@ -48,8 +48,11 @@ public class SpawnPlayer : MonoBehaviour
 
             }
         }
-        if (playerHealth.isDead &&  lifeCount <= 0)
+        if (playerHealth.isDead && lifeCount <= 0)
+        {
             onSpawn?.Invoke(Const.uiLose);
+
+        }
     }
     private void Update()
     {

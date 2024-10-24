@@ -53094,7 +53094,7 @@ PrefabInstance:
       objectReference: {fileID: 1972890534}
     - target: {fileID: 3206108049287242995, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3290033053618034031, guid: 4e835ee3c839e8045aba782e08dec618, type: 3}
       propertyPath: effectSpawn
