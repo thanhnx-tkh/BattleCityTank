@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiWin : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class UiWin : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeCount--;
         }
-        ChangeScene.Ins.QuitToMainMenu(winScene);
+        SceneManager.LoadScene(winScene);
         StopCoroutine(time);
     }
 }

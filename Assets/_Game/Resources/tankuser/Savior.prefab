@@ -939,7 +939,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!82 &82671237639658761
 AudioSource:
@@ -1051,16 +1051,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <moveSpeed>k__BackingField: 0
   <dame>k__BackingField: 0
-  attackSpeed: 0
+  attackSpeed: 0.5
   effectHit:
   - {fileID: 198113915942869685, guid: db1696324f38bfb4b8ce5aada04c78eb, type: 3}
   - {fileID: 198047808942541715, guid: 550c7b4e29486714f86cc07c43c50f6c, type: 3}
-  <Id>k__BackingField: 0
+  shotEffect: {fileID: 207443270733999659}
+  <Id>k__BackingField: 9
   rb: {fileID: 54573018199724135}
   typeBullet: 0
   pointFire: {fileID: 4094201960866131}
   anim: {fileID: 95947535291488265}
-  shotEffect: {fileID: 207443270733999659}
 --- !u!114 &8938123570105422637
 MonoBehaviour:
   m_ObjectHideFlags: 0

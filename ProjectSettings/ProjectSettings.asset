@@ -162,6 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.BattleCityTank
+    Standalone: com.DefaultCompany.BattleCityTank
     iPhone: com.DefaultCompany.BattleCityTank
   buildNumber:
     Standalone: 0

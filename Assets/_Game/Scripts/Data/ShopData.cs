@@ -8,7 +8,6 @@ public class ShopData : ScriptableObject
 {
     [ListDrawerSettings(ShowFoldout = true)]
     public List<ShopItemData> itemDatas;
-
     public List<ShopItemData> GetTankNotPurchased()
     {
         List<ShopItemData> listTankNotPurchased = new List<ShopItemData>();

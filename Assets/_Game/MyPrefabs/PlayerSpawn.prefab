@@ -4786,10 +4786,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed297f9d14b924541a0ed404a645e2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1784820738568054, guid: 3f8f06b5c817564478f366c0fb3c82a8, type: 3}
+  players: []
+  prefabTank: {fileID: 0}
   spawnPlayer: {fileID: 6238971154333461002}
+  shopData: {fileID: 11400000, guid: 807a11abc081c428b9a768de57980ef1, type: 2}
   <lifeCount>k__BackingField: 3
   onLifeChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onSpawn:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8231819659448553759

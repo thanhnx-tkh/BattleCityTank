@@ -34,10 +34,10 @@ public class Observer : MonoBehaviour
         {
             try
             {
-                item?.Invoke(datas);
+                 item?.Invoke(datas);
             }
             catch (Exception e)
-            {
+            {   
                 Debug.LogError("Error on invoke: " + e);
             }
         }

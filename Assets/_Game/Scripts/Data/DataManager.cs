@@ -97,6 +97,7 @@ public class DataManager : Singleton<DataManager>
         int index = playerData.purchasedTankIds.IndexOf(id);
         return playerData.tankLevels[index];
     }
+
     public float GetStarByLevel(int indexLevel)
     {
         LoadData();

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    //[SerializeField] private List<PlayerController> players;
+    [SerializeField] private GameObject prefabTank;
     [SerializeField] private Transform spawnPlayer;
+    [SerializeField] private ShopData shopData;
     [field: SerializeField] public int lifeCount { get; set; }
     private PlayerHealth playerHealth;
     public UnityEvent<int> onLifeChange;
@@ -31,31 +33,36 @@ public class SpawnPlayer : MonoBehaviour
     }
     public void FirstSpawn()
     {
-        GameObject playerIns = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation);
-        playerIns.transform.SetParent(this.transform);
-        playerHealth = playerIns.GetComponent<PlayerHealth>();
+        prefabTank  = shopData.itemDatas[LevelManager.Ins.currentTankId].tankObj;
+        GameObject tankInstace = Instantiate(prefabTank.gameObject,spawnPlayer.position, spawnPlayer.rotation);
+        tankInstace.transform.SetParent(spawnPlayer.transform);
+        PlayerController playerController = tankInstace.GetComponent<PlayerController>();
+        playerHealth = tankInstace.GetComponent<PlayerHealth>();
+        playerController.dame = shopData.itemDatas[LevelManager.Ins.currentTankId].damage;
+        playerController.moveSpeed = shopData.itemDatas[LevelManager.Ins.currentTankId].speed / 100;
+        playerHealth.maxHealth = shopData.itemDatas[LevelManager.Ins.currentTankId].maxHealth;
     }
-    public void SpawnLife()
-    {
-        if (playerHealth.isDead && lifeCount > 0)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                FirstSpawn();
-                playerHealth.health = playerHealth.maxHealth;
-                lifeCount--;
-                onLifeChange?.Invoke(lifeCount);
+    //public void SpawnLife()
+    //{
+    //    if (playerHealth.isDead && lifeCount > 0)
+    //    {
+    //        if (Input.GetMouseButtonDown(0))
+    //        {
+    //            FirstSpawn();
+    //            playerHealth.health = playerHealth.maxHealth;
+    //            lifeCount--;
+    //            onLifeChange?.Invoke(lifeCount);
 
-            }
-        }
-        if (playerHealth.isDead && lifeCount <= 0)
-        {
-            onSpawn?.Invoke(Const.uiLose);
+    //        }
+    //    }
+    //    if (playerHealth.isDead && lifeCount <= 0)
+    //    {
+    //        onSpawn?.Invoke(Const.uiLose);
 
-        }
-    }
-    private void Update()
-    {
-        SpawnLife();
-    }
+    //    }
+    //}
+    //private void Update()
+    //{
+    //    SpawnLife();
+    //}
 }
