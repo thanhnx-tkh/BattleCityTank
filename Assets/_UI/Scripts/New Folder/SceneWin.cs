@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class SceneWin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        DataManager.Ins.UpdateMoney(300);
         UIManager.Ins.OpenUI<UIScneneWin>();
     }
-
-
 }
