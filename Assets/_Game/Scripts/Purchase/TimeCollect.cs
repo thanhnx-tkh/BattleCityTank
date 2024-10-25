@@ -40,7 +40,6 @@ public class TimeCollect : MonoBehaviour
             timerText.enabled = false;
             buttonCollectAffter.SetActive(false);
         }
-        Debug.Log(timeRemaining.TotalSeconds);
     }
     private void SetTextValue()
     {

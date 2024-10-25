@@ -6,7 +6,7 @@ public class UIShop : UICanvas
 {
     private void Start()
     {
-        
+        transform.SetAsFirstSibling();
     }
     private void Update()
     {

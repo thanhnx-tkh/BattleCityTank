@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class UIInGame : UICanvas
 {
     public List<GameObject> gameObjects;
-    [SerializeField] private float timeScale;
-    [SerializeField] private BaseHealth baseHealth;
     private void Start()
     {
         foreach (Transform gameObject in transform)
@@ -15,8 +13,7 @@ public class UIInGame : UICanvas
             gameObjects.Add(gameObject.gameObject);
         }
         SpawnPlayer._ins.onSpawn?.AddListener(UiEnable);
-        baseHealth = GameObject.FindGameObjectWithTag("Base").GetComponent<BaseHealth>();
-        baseHealth.onLose?.AddListener(UiEnable);
+        BaseHealth.Instance.onLose?.AddListener(UiEnable);
     }
     public void UiEnable(string nameUi)
     {

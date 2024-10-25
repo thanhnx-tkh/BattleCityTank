@@ -224,6 +224,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2303937325913257530, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303937325913257530, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303937325913257530, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303937325913257530, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536568153415214903, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536568153415214903, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536568153415214903, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4018389932971260558, guid: 076a85be309d4475786cfd8b38a6778f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

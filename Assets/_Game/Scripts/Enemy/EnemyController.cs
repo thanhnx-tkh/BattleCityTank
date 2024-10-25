@@ -31,7 +31,7 @@ public class EnemyController : BaseCharacter
     private void Update()
     {
         StateControl();
-        //Frozen();
+        Frozen();
     }
     protected void StateControl()
     {
@@ -91,23 +91,23 @@ public class EnemyController : BaseCharacter
             return PoolType.bulletSolider;
         return PoolType.bulletEnenmy;
     }
-    //protected void Frozen()
-    //{
-    //    if (FrozenBonus.Ins.isFrozen)
-    //    {
-    //        rb.velocity = Vector3.zero;
-    //        frozenEffect.SetActive(true);
-    //        this.enabled = false;
-    //        frozenTime = StartCoroutine(DeFrozen());
-    //    }
-    //    else return;
-    //}
+    protected void Frozen()
+    {
+        if (UiBonnus.Instance.isFrozen)
+        {
+            rb.velocity = Vector3.zero;
+            frozenEffect.SetActive(true);
+            this.enabled = false;
+            frozenTime = StartCoroutine(DeFrozen());
+        }
+        else return;
+    }
     protected IEnumerator DeFrozen()
     {
         yield return new WaitForSeconds(10);
         frozenEffect.SetActive(false);
         ResetMove();
-        //FrozenBonus.Ins.isFrozen = false;
+        UiBonnus.Instance.isFrozen = false;
         this.enabled = true;
         StopCoroutine(frozenTime);
     }

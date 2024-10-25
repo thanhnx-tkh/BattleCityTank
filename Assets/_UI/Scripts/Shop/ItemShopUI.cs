@@ -37,7 +37,7 @@ public class ItemShopUI : MonoBehaviour
         textPrice.text = price.ToString();
     }
     public void ButtonBuyTankById(){
-        UIManager.Ins.CloseAll();
+        UIManager.Ins.CloseUI<Shop>();
         UIManager.Ins.OpenUI<ShopDetail>().Id = Id;
     }
 }

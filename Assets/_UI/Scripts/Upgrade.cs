@@ -125,6 +125,11 @@ public class Upgrade : UICanvas
             DataManager.Ins.UpdateMoneyBuyTank(coinUpdate);
             SetData(id);
         }
+        if (moneyLeft < coinUpdate)
+        {
+            Close(0);
+            Observer.Notify("ChangeAnimButtonShop");
+        }
     }
 
     public void Back()
@@ -143,7 +148,8 @@ public class Upgrade : UICanvas
 
     public void Purchase()
     {
-        Debug.Log("Purchase");
+        Close(0);
+        Observer.Notify("ChangeAnimButtonShop");
     }
 
 }
