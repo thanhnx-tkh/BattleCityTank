@@ -6,13 +6,13 @@ LightProbes:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: (Clone)
+  m_Name: LightProbes
   m_Data:
     m_Tetrahedralization:
       m_Tetrahedra: []
       m_HullRays: []
     m_ProbeSets: []
     m_Positions: []
-    m_NonTetrahedralizedProbeSetIndexMap: {}
+    m_NonTetrahedralizedProbeSetIndexMap: []
   m_BakedCoefficients: []
   m_BakedLightOcclusion: []

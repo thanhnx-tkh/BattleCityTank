@@ -23314,7 +23314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   mainButton: {fileID: 5064107299216341011}
-  scene: UiGame
+  scene: SceneMain
 --- !u!1 &8860398175629620049
 GameObject:
   m_ObjectHideFlags: 0

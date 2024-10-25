@@ -22,6 +22,7 @@ public class MianMenu : UICanvas
 
         Observer.AddObserver("UpdateUI", UpdateTextGold);
         Observer.AddObserver("UpdateUI", UpdateTextScore);
+        textGold.text = DataManager.Ins.GetCurrentMoney().ToString();
 
     }
     private void OnEnable()

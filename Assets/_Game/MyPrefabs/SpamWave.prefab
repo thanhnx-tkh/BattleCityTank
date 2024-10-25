@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1297893194787023196}
   - component: {fileID: 3290033053618034031}
-  - component: {fileID: 3467273375645609679}
   m_Layer: 0
   m_Name: Wave2
   m_TagString: Untagged
@@ -85,27 +84,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 0}
   effectSpawn: {fileID: 0}
   timeDestroyEffect: 0
---- !u!114 &3467273375645609679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206108049287242995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac54095f54b4f9348bbc0022f1d6912b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tankEnemy: []
-  spawnsTransform:
-  - {fileID: 698801824046617505}
-  - {fileID: 8754173755114633907}
-  - {fileID: 2019355531567063609}
-  - {fileID: 737838994883586172}
-  enemyPrefab: {fileID: 6081928359057309369, guid: 39f1f349769805148a0f64b15ddc2dde, type: 3}
-  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
-  timeDestroyEffect: 1
 --- !u!1 &3326983991127488288
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,12 +317,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 94042823894892454}
-  - {fileID: 3467273375645609679}
+  - {fileID: 0}
+  - {fileID: 0}
   fireWork: {fileID: 0}
   countWave: 0
   totalWave: 0
   onWaveChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onCountChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8589159182871632269
@@ -357,7 +338,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6464931556066279764}
   - component: {fileID: 1610598636185565667}
-  - component: {fileID: 94042823894892454}
   m_Layer: 0
   m_Name: Wave1
   m_TagString: Untagged
@@ -401,27 +381,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 0}
   effectSpawn: {fileID: 0}
   timeDestroyEffect: 0
---- !u!114 &94042823894892454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589159182871632269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fc514f7db65214facaa886001a512b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tankEnemy: []
-  spawnsTransform:
-  - {fileID: 7310647600019697797}
-  - {fileID: 2081733341253807664}
-  - {fileID: 1538880006816824067}
-  - {fileID: 883959235728480981}
-  enemyPrefab: {fileID: 8922553680434087113, guid: 8830299846f31d94b9f7a1dd48e15ed2, type: 3}
-  effectSpawn: {fileID: 1698754240234505, guid: 266557f76fdad19498f4a90b5f46ed91, type: 3}
-  timeDestroyEffect: 1
 --- !u!1 &8639387609513544770
 GameObject:
   m_ObjectHideFlags: 0

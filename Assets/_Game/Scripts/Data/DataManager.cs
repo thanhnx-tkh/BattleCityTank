@@ -6,15 +6,12 @@ public class DataManager : Singleton<DataManager>
 {
     private PlayerData playerData;
     private SaveSystem saveSystem;
-
-    private void Start()
-    {
+    private void OnEnable() {
         saveSystem = GetComponent<SaveSystem>();
         LoadData();
         SaveGame();
         Observer.Notify("UpdateUI");
         LevelManager.Ins.currentTankId = GetListPurchasedTankById()[GetListPurchasedTankById().Count - 1];
-
     }
     public void SaveGame()
     {
