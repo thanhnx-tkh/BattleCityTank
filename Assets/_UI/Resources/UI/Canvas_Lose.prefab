@@ -5161,6 +5161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   mainButton: {fileID: 8834375748546522172}
+  mainRetryGame: {fileID: 7518251524351600136}
   scene: SceneMain
 --- !u!1 &1489953735826507215
 GameObject:

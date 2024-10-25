@@ -67,8 +67,9 @@ public class DataManager : Singleton<DataManager>
         SaveGame();
     }
 
-    public void UnlockLevel(int level, int star)
+    public int UnlockLevel(int star)
     {
+        int level = playerData.unlockedLevels.Count;
         if (!playerData.unlockedLevels.Contains(level))
         {
             playerData.unlockedLevels.Add(level);
@@ -81,8 +82,8 @@ public class DataManager : Singleton<DataManager>
         }
 
         SaveGame();
+        return level;
     }
-
     public List<int> GetListPurchasedTankById()
     {
         LoadData();

@@ -65,8 +65,9 @@ public class PlayGame : UICanvas
     }
     public void ButtonPlay()
     {
-        SceneManager.LoadScene("Lv" + (LevelManager.Ins.currentLevel + 1));
-        
+        //SceneManager.LoadScene("Lv" + (LevelManager.Ins.currentLevel + 1));
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen("Lv" + (LevelManager.Ins.currentLevel + 1));
+
     }
 
     private void OnDestroy()

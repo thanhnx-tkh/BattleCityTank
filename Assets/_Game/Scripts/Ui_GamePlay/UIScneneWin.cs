@@ -7,13 +7,20 @@ using UnityEngine.UI;
 public class UIScneneWin : UICanvas
 {
     [SerializeField] private Button mainButton;
+    [SerializeField] private Button mainNextLevel;
     [SerializeField] private string scene;
     private void Start()
     {
         mainButton.onClick?.AddListener(BackMainMenu);
+        mainNextLevel.onClick?.AddListener(NextLevel);
     }
     public void BackMainMenu()
     {
-        SceneManager.LoadSceneAsync(scene);
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen(scene);
+    }
+    public void NextLevel()
+    {
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen("Lv" + (LevelManager.Ins.currentLevel + 1));
+
     }
 }

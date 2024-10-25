@@ -19,7 +19,9 @@ public class UiWin : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeCount--;
         }
-        SceneManager.LoadScene(winScene);
+        //SceneManager.LoadScene(winScene);
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen(winScene);
+
         StopCoroutine(time);
     }
 }

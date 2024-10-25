@@ -37,7 +37,9 @@ public class UiLose : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeEnableLose--;
         }
-        SceneManager.LoadScene(lostScene);
+        //SceneManager.LoadScene(lostScene);
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen(lostScene);
+
         StopCoroutine(sceneLost);
     }
 }
