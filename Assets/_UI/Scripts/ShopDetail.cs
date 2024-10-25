@@ -71,14 +71,21 @@ public class ShopDetail : UICanvas
         UIManager.Ins.OpenUI<Shop>();
     }  
 
-    private void ButtonBuyShop()
+    public void ButtonBuyShop()
     {
         int price =(int)shopDatas.itemDatas[Id].price;
-        if(DataManager.Ins.GetCurrentMoney() - price < 0) return;
-        DataManager.Ins.UpdateMoneyBuyTank(price);
-        Close(0);
-        DataManager.Ins.PurchaseTank(Id);
-        UIManager.Ins.OpenUI<Shop>();
-        Observer.Notify("UpdateUI");
+        if (DataManager.Ins.GetCurrentMoney() - price >= 0)
+        {
+            DataManager.Ins.UpdateMoneyBuyTank(price);
+            Close(0);
+            DataManager.Ins.PurchaseTank(Id);
+            UIManager.Ins.OpenUI<Shop>();
+            Observer.Notify("UpdateUI");
+        }
+        if ((DataManager.Ins.GetCurrentMoney() - price) < 0)
+        {
+            Close(0);
+            Observer.Notify("ChangeAnimButtonShop");
+        }
     }
 }

@@ -10,15 +10,18 @@ public class MianMenu : UICanvas
     public Button shopButton;
     public Button playButton;
     public Button giftButton;
+    public Button plusButton;
 
     public Text textGold;
     public Text textScore;
+    
     private void Start()
     {
         upgradeButton.onClick.AddListener(UpgradeButton);
         playButton.onClick.AddListener(PlayButton);
         giftButton.onClick.AddListener(GiftButton);
         shopButton.onClick.AddListener(ShopButton);
+        plusButton.onClick.AddListener(PlusButton);
 
         Observer.AddObserver("UpdateUI", UpdateTextGold);
         Observer.AddObserver("UpdateUI", UpdateTextScore);
@@ -56,9 +59,14 @@ public class MianMenu : UICanvas
 
     public void GiftButton()
     {
-
+        Close(0);
+        Observer.Notify("ChangeAnimButtonShop");
     }
-
+    public void PlusButton()
+    {
+        Close(0);
+        Observer.Notify("ChangeAnimButtonShop");
+    }
     public void OnDestroy()
     {
         Observer.RemoveObserver("UpdateUI", UpdateTextGold);

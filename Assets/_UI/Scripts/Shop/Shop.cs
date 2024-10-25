@@ -8,9 +8,11 @@ public class Shop : UICanvas
 {
     public Text textGold;
     public Button backMainMenu;
+    public Button plusButton;
     private void Start()
     {
         backMainMenu.onClick.AddListener(BackMainMenu);
+        plusButton.onClick.AddListener(PlusButton);
         Observer.AddObserver("UpdateUI", UpdateTextGold);
     }
     private void OnEnable() {
@@ -30,5 +32,10 @@ public class Shop : UICanvas
         Close(0);
         UIManager.Ins.OpenUI<MianMenu>();
         UIManager.Ins.OpenUI<BarMenu>();
+    }
+    public void PlusButton()
+    {
+        Close(0);
+        Observer.Notify("ChangeAnimButtonShop");
     }
 }

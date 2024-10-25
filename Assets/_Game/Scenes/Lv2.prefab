@@ -21423,7 +21423,7 @@ GameObject:
   - component: {fileID: 138885851998038870}
   - component: {fileID: 6772162980877574092}
   - component: {fileID: 3322053768360927683}
-  - component: {fileID: 2481037684282666334}
+  - component: {fileID: 9105633334634063883}
   m_Layer: 13
   m_Name: statue
   m_TagString: Base
@@ -21586,7 +21586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alarmSound: {fileID: 0}
   shieldOn: {fileID: 100913767107943328}
---- !u!114 &2481037684282666334
+--- !u!114 &9105633334634063883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21595,12 +21595,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1527149884697327582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f901322d9d00f458fbef0f14e61240, type: 3}
+  m_Script: {fileID: 11500000, guid: e927a645a847a39479c9f7cc21659e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 200
+  <maxHealth>k__BackingField: 0
   <health>k__BackingField: 0
   onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onLose:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1531953443527846640
@@ -100871,10 +100874,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2183928871685732895, guid: b7f1a6159921e5b4dbdb5c6b597b03cb, type: 3}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 2481037684282666334}
     - target: {fileID: 6821303105449787290, guid: b7f1a6159921e5b4dbdb5c6b597b03cb, type: 3}
       propertyPath: m_Name
       value: Healthbar

@@ -40,10 +40,10 @@ public class SpawnPlayer : MonoBehaviour
         PlayerController playerController = tankInstace.GetComponent<PlayerController>();
         playerHealth = tankInstace.GetComponent<PlayerHealth>();
         float indexTank = DataManager.Ins.GetTankLevelbyId(LevelManager.Ins.currentTankId);
-        if (LevelManager.Ins.currentTankId == 1)
+        if (LevelManager.Ins.currentTankId == 0)
         {
             playerController.dame = shopData.itemDatas[LevelManager.Ins.currentTankId].damage;
-            playerController.moveSpeed = shopData.itemDatas[LevelManager.Ins.currentTankId].speed / 100;
+            playerController.moveSpeed = (shopData.itemDatas[LevelManager.Ins.currentTankId].speed / 100) + 0.5f;
             playerHealth.maxHealth = shopData.itemDatas[LevelManager.Ins.currentTankId].maxHealth;
         }
         else

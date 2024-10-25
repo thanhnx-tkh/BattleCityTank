@@ -20,7 +20,13 @@ public class UIScneneWin : UICanvas
     }
     public void NextLevel()
     {
-        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen("Lv" + (LevelManager.Ins.currentLevel + 1));
-
+        if (LevelManager.Ins.currentLevel < 2)
+        {
+            SceneTransitionManager.Instance.LoadSceneWithLoadingScreen("Lv" + (LevelManager.Ins.currentLevel + 1));
+        }
+        else
+        {
+            LevelManager.Ins.currentLevel = 0;
+        }
     }
 }

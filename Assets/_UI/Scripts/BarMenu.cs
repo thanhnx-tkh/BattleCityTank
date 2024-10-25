@@ -22,6 +22,8 @@ public class BarMenu : UICanvas
         shopButton.onClick.AddListener(ShopButton);
         eventsButton.onClick.AddListener(EventsButton);
         homeButton.onClick.AddListener(HomeButton);
+
+        Observer.AddObserver("ChangeAnimButtonShop", ShopButton_2);
     }
     public void ChangeAnim(string animName)
     {
@@ -39,10 +41,10 @@ public class BarMenu : UICanvas
     }
     public void MapButton()
     {
-
         ChangeAnim("Idle");
         UIManager.Ins.CloseUI<MianMenu>();
         UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.CloseUI<UIShop>();
         UIManager.Ins.OpenUI<BarMenu>();
         UIManager.Ins.OpenUI<Map>();
         ChangeAnim("Map");
@@ -52,14 +54,27 @@ public class BarMenu : UICanvas
         ChangeAnim("Idle");
         UIManager.Ins.CloseUI<MianMenu>();
         UIManager.Ins.CloseUI<Map>();
-        UIManager.Ins.CloseUI<BarMenu>();
-        UIManager.Ins.OpenUI<Shop>();
+        UIManager.Ins.OpenUI<UIShop>();
+        UIManager.Ins.OpenUI<BarMenu>();
+        ChangeAnim("Shop");
+    }
+    public void ShopButton_2(object[] data)
+    {
+        ChangeAnim("Idle");
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.OpenUI<UIShop>();
+        UIManager.Ins.OpenUI<BarMenu>();
+        Debug.Log("Chay");
         ChangeAnim("Shop");
     }
     public void EventsButton()
     {
         ChangeAnim("Idle");
-
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.OpenUI<UIShop>();
+        UIManager.Ins.OpenUI<BarMenu>();
         //UIManager.Ins.CloseAll();
         //UIManager.Ins.OpenUI<Event>();
         ChangeAnim("Event");
@@ -70,9 +85,14 @@ public class BarMenu : UICanvas
         ChangeAnim("Idle");
         UIManager.Ins.CloseUI<MianMenu>();
         UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.CloseUI<UIShop>();
         UIManager.Ins.OpenUI<BarMenu>();
         UIManager.Ins.OpenUI<MianMenu>();
 
         ChangeAnim("Home");
+    }
+    private void OnDestroy()
+    {
+        Observer.RemoveObserver("ChangeAnimButtonShop", ShopButton_2);
     }
 }

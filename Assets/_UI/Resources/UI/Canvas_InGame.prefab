@@ -6277,7 +6277,6 @@ GameObject:
   - component: {fileID: 6655177235343179004}
   - component: {fileID: 742241344094273256}
   - component: {fileID: 7422972891269898244}
-  - component: {fileID: 8402269716904068111}
   m_Layer: 5
   m_Name: Icon_Frozen
   m_TagString: Untagged
@@ -6400,20 +6399,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8402269716904068111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248475124253487144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebe8d835079a3d4190f7726b32814c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <isFrozen>k__BackingField: 0
-  frozenButton: {fileID: 0}
 --- !u!1 &4253735885628365688
 GameObject:
   m_ObjectHideFlags: 0
@@ -7204,7 +7189,7 @@ Canvas:
   m_GameObject: {fileID: 5095929915903867843}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -7272,8 +7257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
   gameObjects: []
-  timeScale: 0
-  baseHealth: {fileID: 0}
 --- !u!1 &5520923690290323774
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,7 +7471,6 @@ GameObject:
   - component: {fileID: 657392018367380505}
   - component: {fileID: 732758466479743125}
   - component: {fileID: 1293009698640138603}
-  - component: {fileID: 3661503493692465920}
   m_Layer: 5
   m_Name: Icon_Resilient
   m_TagString: Untagged
@@ -7611,20 +7593,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3661503493692465920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5875924694609106811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611c9354702dda244a4c0277cb44f05d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shieldButton: {fileID: 0}
-  <isShield>k__BackingField: 0
 --- !u!1 &5893885659919156212
 GameObject:
   m_ObjectHideFlags: 0
@@ -7637,7 +7605,7 @@ GameObject:
   - component: {fileID: 6023738001125112808}
   - component: {fileID: 2058863362854103433}
   - component: {fileID: 6961927613371470215}
-  - component: {fileID: 8022628489128595529}
+  - component: {fileID: 3913069115259844760}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -7748,7 +7716,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8022628489128595529
+--- !u!114 &3913069115259844760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7757,12 +7725,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5893885659919156212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3969aa2c6f26274abe0f556b723924f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7244c422a2a0f644c9fd2ec68d471703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDestroyOnClose: 0
-  mainButton: {fileID: 6961927613371470215}
-  scene: SceneMain
+  buttonQuit: {fileID: 0}
+  nameScene: SceneMain
 --- !u!1 &6350674383258107017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7986,6 +7953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7215125393777317054}
+  - component: {fileID: 7281163346287177181}
   m_Layer: 5
   m_Name: Ui_Game
   m_TagString: Untagged
@@ -8019,6 +7987,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7281163346287177181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6627017485426232441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30896ef2054df5a49a4bbd3d147a5c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frozenObj: {fileID: 4248475124253487144}
+  shieldObj: {fileID: 5875924694609106811}
+  frozenButton: {fileID: 7422972891269898244}
+  shieldButton: {fileID: 1293009698640138603}
+  levelText: {fileID: 970496972347791879}
+  <isFrozen>k__BackingField: 0
+  <isShield>k__BackingField: 0
 --- !u!1 &6693380207282709293
 GameObject:
   m_ObjectHideFlags: 0
@@ -8269,7 +8256,7 @@ GameObject:
   - component: {fileID: 7514004732556775947}
   - component: {fileID: 4596559687045230698}
   - component: {fileID: 6339475193311047975}
-  - component: {fileID: 435693326780922063}
+  - component: {fileID: 1632715571914673990}
   m_Layer: 5
   m_Name: Button_No
   m_TagString: Untagged
@@ -8379,7 +8366,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &435693326780922063
+--- !u!114 &1632715571914673990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8388,12 +8375,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7618806628796375356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3969aa2c6f26274abe0f556b723924f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7244c422a2a0f644c9fd2ec68d471703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDestroyOnClose: 0
-  mainButton: {fileID: 6339475193311047975}
-  scene: SceneMain
+  buttonQuit: {fileID: 0}
+  nameScene: SceneLose
 --- !u!1 &7841566623871262918
 GameObject:
   m_ObjectHideFlags: 0
