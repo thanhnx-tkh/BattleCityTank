@@ -32,6 +32,7 @@ public class WaveManager : MonoBehaviour
             waves.Add(wave.GetComponent<BaseWave>());
         }
         waves[0].gameObject.SetActive(true);
+        waves[0].SpawnEnemy();
         countWave = waves[0].gameObject.GetComponent<BaseWave>().tankEnemy.Count * waves.Count;
         totalWave = waves[0].tankEnemy.Count * waves.Count;
     }
@@ -51,6 +52,7 @@ public class WaveManager : MonoBehaviour
             if (waves[0] != null)
             {
                 waves[0].gameObject.SetActive(true);
+                waves[0].SpawnEnemy();
             }
         }
         onWaveChange?.Invoke(countWave, totalWave);

@@ -12,13 +12,13 @@ public class BaseWave : MonoBehaviour
 
     private void Awake()
     {
-        SpawnEnemy();
+       
     }
-    private void Start()
+    private void OnEnable()
     {
-        
+        //SpawnEnemy();
     }
-    protected virtual void SpawnEnemy()
+    public void SpawnEnemy()
     {
         for (int i = spawnsTransform.Count - 1; i >= 0; i--)
         {
