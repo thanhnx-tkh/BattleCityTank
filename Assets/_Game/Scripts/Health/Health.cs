@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public UnityEvent<float, float> onHealthChange;
     public bool isDead => health <= 0;
 
-    private void Awake()
+    private void Start()
     {
         health = maxHealth;
     }
