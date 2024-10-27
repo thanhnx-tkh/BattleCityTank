@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    //[SerializeField] private List<PlayerController> players;
     [SerializeField] private GameObject prefabTank;
     [SerializeField] private Transform spawnPlayer;
     [SerializeField] private ShopData shopData;
