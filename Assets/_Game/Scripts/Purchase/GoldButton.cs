@@ -11,5 +11,6 @@ public class GoldButton : BasePuschaseButton
     public void OnPurchaseComplete(Product product)
     {
         isBuy = true;
+        Observer.Notify("UpdateGold");
     }
 }

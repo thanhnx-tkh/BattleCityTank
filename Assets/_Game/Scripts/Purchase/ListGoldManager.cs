@@ -18,8 +18,9 @@ public class ListGoldManager : MonoBehaviour
             button.GetComponent<CodelessIAPButton>().button = button.gameObject.GetComponent<Button>();
             button.GetComponent<CodelessIAPButton>().onPurchaseComplete.AddListener(button.gameObject.GetComponent<GoldButton>().OnPurchaseComplete);
         }
+        Observer.AddObserver("UpdateGold", BuyGold);
     }
-    private void BuyGold()
+    private void BuyGold(object[] datas)
     {
         for (int i = 0; i < buttons.Count; i++)
         {
@@ -32,6 +33,6 @@ public class ListGoldManager : MonoBehaviour
     }
     private void Update()
     {
-        BuyGold();
+        
     }
 }
