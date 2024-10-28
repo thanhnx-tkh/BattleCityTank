@@ -80,10 +80,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankEnemy: []
-  spawnsTransform: []
+  spawnsTransform:
+  - {fileID: 698801824046617505}
+  - {fileID: 8754173755114633907}
+  - {fileID: 2019355531567063609}
+  - {fileID: 737838994883586172}
   enemyPrefab: {fileID: 0}
-  effectSpawn: {fileID: 0}
-  timeDestroyEffect: 0
+  effectSpawn: {fileID: 1698754240234505, guid: 266557f76fdad19498f4a90b5f46ed91, type: 3}
+  timeDestroyEffect: 1
 --- !u!1 &3326983991127488288
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,9 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8624a3530913e468e8889a9d28f9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - {fileID: 0}
-  - {fileID: 0}
+  waves: []
   fireWork: {fileID: 0}
   countWave: 0
   totalWave: 0
@@ -344,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6464931556066279764
 Transform:
   m_ObjectHideFlags: 0
@@ -377,10 +379,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankEnemy: []
-  spawnsTransform: []
+  spawnsTransform:
+  - {fileID: 7310647600019697797}
+  - {fileID: 2081733341253807664}
+  - {fileID: 1538880006816824067}
+  - {fileID: 883959235728480981}
   enemyPrefab: {fileID: 0}
-  effectSpawn: {fileID: 0}
-  timeDestroyEffect: 0
+  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
+  timeDestroyEffect: 1
 --- !u!1 &8639387609513544770
 GameObject:
   m_ObjectHideFlags: 0
