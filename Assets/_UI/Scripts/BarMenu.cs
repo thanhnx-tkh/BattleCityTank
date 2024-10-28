@@ -42,9 +42,9 @@ public class BarMenu : UICanvas
     public void MapButton()
     {
         ChangeAnim("Idle");
-        UIManager.Ins.CloseUI<MianMenu>();
-        UIManager.Ins.CloseUI<Map>();
-        UIManager.Ins.CloseUI<UIShop>();
+
+        CloseUI();
+
         UIManager.Ins.OpenUI<BarMenu>();
         UIManager.Ins.OpenUI<Map>();
         ChangeAnim("Map");
@@ -52,8 +52,9 @@ public class BarMenu : UICanvas
     public void ShopButton()
     {
         ChangeAnim("Idle");
-        UIManager.Ins.CloseUI<MianMenu>();
-        UIManager.Ins.CloseUI<Map>();
+
+        CloseUI();
+
         UIManager.Ins.OpenUI<UIShop>();
         UIManager.Ins.OpenUI<BarMenu>();
         ChangeAnim("Shop");
@@ -61,8 +62,9 @@ public class BarMenu : UICanvas
     public void ShopButton_2(object[] data)
     {
         ChangeAnim("Idle");
-        UIManager.Ins.CloseUI<MianMenu>();
-        UIManager.Ins.CloseUI<Map>();
+
+        CloseUI();
+
         UIManager.Ins.OpenUI<UIShop>();
         UIManager.Ins.OpenUI<BarMenu>();
         Debug.Log("Chay");
@@ -71,21 +73,20 @@ public class BarMenu : UICanvas
     public void EventsButton()
     {
         ChangeAnim("Idle");
-        UIManager.Ins.CloseUI<MianMenu>();
-        UIManager.Ins.CloseUI<Map>();
-        UIManager.Ins.OpenUI<UIShop>();
+
+        CloseUI();
+
+        UIManager.Ins.OpenUI<Event>();
         UIManager.Ins.OpenUI<BarMenu>();
-        //UIManager.Ins.CloseAll();
-        //UIManager.Ins.OpenUI<Event>();
+
         ChangeAnim("Event");
     }
     public void HomeButton()
     {
-        
         ChangeAnim("Idle");
-        UIManager.Ins.CloseUI<MianMenu>();
-        UIManager.Ins.CloseUI<Map>();
-        UIManager.Ins.CloseUI<UIShop>();
+
+        CloseUI();
+
         UIManager.Ins.OpenUI<BarMenu>();
         UIManager.Ins.OpenUI<MianMenu>();
 
@@ -94,5 +95,13 @@ public class BarMenu : UICanvas
     private void OnDestroy()
     {
         Observer.RemoveObserver("ChangeAnimButtonShop", ShopButton_2);
+    }
+
+    private void CloseUI()
+    {
+        UIManager.Ins.CloseUI<MianMenu>();
+        UIManager.Ins.CloseUI<Map>();
+        UIManager.Ins.CloseUI<UIShop>();
+        UIManager.Ins.CloseUI<Event>();
     }
 }
