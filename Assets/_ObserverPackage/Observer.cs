@@ -18,10 +18,7 @@ public class Observer : MonoBehaviour
     }
     public static void RemoveObserver(string name, Action<object[]> callback)
     {
-        if (!Listeners.ContainsKey(name))
-        {
-            Listeners.Add(name, new List<Action<object[]>>());
-        }
+        if (!Listeners.ContainsKey(name)) return;
         Listeners[name].Remove(callback);
     }
     public static void Notify(string name, params object[] datas)
