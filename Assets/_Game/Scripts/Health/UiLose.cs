@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class UiLose : MonoBehaviour
 {
+    [SerializeField] private Button spendGold;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject buttonQuit;
     [SerializeField] private string lostScene;
@@ -16,8 +17,17 @@ public class UiLose : MonoBehaviour
     private Coroutine sceneLost;
     private void Start()
     {
-       time = StartCoroutine(Wait());
-       sceneLost = StartCoroutine(ShowLose());
+        time = StartCoroutine(Wait());
+        spendGold.onClick?.AddListener(SpendGoldForRevive);
+        sceneLost = StartCoroutine(ShowLose());
+    }
+    private void SpendGoldForRevive()
+    {
+        if (DataManager.Ins.GetCurrentMoney() > 500)
+        {
+            DataManager.Ins.UpdateMoney(-500);
+            SceneManager.LoadSceneAsync("Lv" + (LevelManager.Ins.currentLevel + 1));
+        }
     }
     private IEnumerator Wait()
     {
@@ -37,7 +47,6 @@ public class UiLose : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeEnableLose--;
         }
-        //SceneManager.LoadScene(lostScene);
         SceneTransitionManager.Instance.LoadSceneWithLoadingScreen(lostScene);
 
         StopCoroutine(sceneLost);

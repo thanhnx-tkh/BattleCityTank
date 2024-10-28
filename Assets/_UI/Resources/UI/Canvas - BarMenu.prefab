@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fa0c35f76b044c7803e67937f4e0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDestroyOnClose: 1
+  IsDestroyOnClose: 0
   mapButton: {fileID: 1557868379936531201}
   shopButton: {fileID: 5442153419838176745}
   eventsButton: {fileID: 4561773385435658477}

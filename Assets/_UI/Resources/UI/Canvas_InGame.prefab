@@ -3319,6 +3319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e8d5fd2dc2e254fa8b9332e0782af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spendGold: {fileID: 4543732020771605775}
   text: {fileID: 9214581674185891444}
   buttonQuit: {fileID: 7618806628796375356}
   lostScene: SceneLose
@@ -7728,7 +7729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7244c422a2a0f644c9fd2ec68d471703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonQuit: {fileID: 0}
+  buttonQuit: {fileID: 6961927613371470215}
   nameScene: SceneMain
 --- !u!1 &6350674383258107017
 GameObject:
@@ -8378,7 +8379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7244c422a2a0f644c9fd2ec68d471703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonQuit: {fileID: 0}
+  buttonQuit: {fileID: 6339475193311047975}
   nameScene: SceneLose
 --- !u!1 &7841566623871262918
 GameObject:

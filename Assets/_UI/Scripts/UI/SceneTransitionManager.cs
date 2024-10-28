@@ -27,6 +27,7 @@ public class SceneTransitionManager : MonoBehaviour
     {
         targetScene = sceneToLoad;
         StartCoroutine(LoadSceneProcess());
+        Time.timeScale = 1;
     }
 
     private IEnumerator LoadSceneProcess()

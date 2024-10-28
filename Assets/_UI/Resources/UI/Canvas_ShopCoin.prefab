@@ -23908,7 +23908,7 @@ MonoBehaviour:
       - m_Target: {fileID: 729462107867985214}
         m_TargetAssemblyTypeName: PromotionButton, Assembly-CSharp
         m_MethodName: OnPurchaseComplete
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -28777,7 +28777,7 @@ MonoBehaviour:
       - m_Target: {fileID: 270141534755284662}
         m_TargetAssemblyTypeName: PromotionButton, Assembly-CSharp
         m_MethodName: OnPurchaseComplete
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -42567,7 +42567,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2075186285890793868}
         m_TargetAssemblyTypeName: PromotionButton, Assembly-CSharp
         m_MethodName: OnPurchaseComplete
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

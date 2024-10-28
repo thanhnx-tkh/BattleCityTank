@@ -14,6 +14,7 @@ public class ButtonQuit : MonoBehaviour
     }
     public void QuitMap()
     {
-        SceneManager.LoadSceneAsync(nameScene);
+        SceneTransitionManager.Instance.LoadSceneWithLoadingScreen(nameScene);
+        //SceneManager.LoadSceneAsync(nameScene);
     }
 }
