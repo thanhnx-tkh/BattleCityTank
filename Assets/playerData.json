@@ -1,13 +1,11 @@
 {
     "purchasedTankIds": [
-        0,
-        1
+        0
     ],
     "tankLevels": [
-        2,
-        2
+        1
     ],
-    "currentMoney": 1005,
+    "currentMoney": 0,
     "currentScore": 0,
     "unlockedLevels": [
         0,
@@ -16,9 +14,6 @@
         3
     ],
     "starLevels": [
-        1,
-        3,
-        3,
-        3
+        1
     ]
 }
