@@ -13,6 +13,8 @@ public class UIScneneWin : UICanvas
     {
         mainButton.onClick?.AddListener(BackMainMenu);
         mainNextLevel.onClick?.AddListener(NextLevel);
+        LevelManager.Ins.isFrozen = false;
+        LevelManager.Ins.isResilient = false;
     }
     public void BackMainMenu()
     {

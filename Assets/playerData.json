@@ -8,9 +8,11 @@
     "currentMoney": 0,
     "currentScore": 0,
     "unlockedLevels": [
-        0
+        0,
+        1
     ],
     "starLevels": [
-        1
+        1,
+        3
     ]
 }

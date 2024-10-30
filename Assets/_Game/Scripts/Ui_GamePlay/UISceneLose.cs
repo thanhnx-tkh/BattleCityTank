@@ -13,6 +13,8 @@ public class UISceneLose : UICanvas
     {
         mainButton.onClick?.AddListener(BackMainMenu);
         mainRetryGame.onClick?.AddListener(RetryGame);
+        LevelManager.Ins.isFrozen = false;
+        LevelManager.Ins.isResilient = false;
     }
     public void BackMainMenu()
     {
