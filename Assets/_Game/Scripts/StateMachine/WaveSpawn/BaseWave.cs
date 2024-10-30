@@ -9,13 +9,9 @@ public class BaseWave : MonoBehaviour
     [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected GameObject effectSpawn;
     [SerializeField] protected float timeDestroyEffect;
-    private void Awake()
+    private void Start()
     {
-       
-    }
-    private void OnEnable()
-    {
-        //SpawnEnemy();
+        Observer.AddObserver("ClearEnemy", ClearEnemy);
     }
     public void SpawnEnemy()
     {
@@ -39,13 +35,15 @@ public class BaseWave : MonoBehaviour
             tanks.GetComponent<Health>().maxHealth += LevelManager.Ins.currentLevel * 50;
             tanks.GetComponent<EnemyController>().dame += LevelManager.Ins.currentLevel * 20;
             tanks.GetComponent<EnemyController>().moveSpeed += LevelManager.Ins.currentLevel * 0.1f;
+            if(LevelManager.Ins.currentLevel >= 6)
+                tanks.GetComponent<EnemyController>().moveSpeed += LevelManager.Ins.currentLevel * 0.2f;
         }
     }
-    protected void ClearEnemy()
+    protected void ClearEnemy(object[] datas)
     {
         for (int i = 0; i < tankEnemy.Count; i++)
         {
-            if (tankEnemy[i] == null)
+            if (tankEnemy[i].GetComponent<Health>().isDead)
             {
                 tankEnemy.RemoveAt(i);
                 WaveManager.Instance.countWave--;
@@ -53,11 +51,11 @@ public class BaseWave : MonoBehaviour
         }
         if (tankEnemy.Count == 0)
         {
-            Destroy(this.gameObject);
+           this.gameObject.SetActive(false);
         }
     }
     private void Update()
     {
-        ClearEnemy();
+        
     }
 }

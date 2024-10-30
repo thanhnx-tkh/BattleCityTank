@@ -10,6 +10,7 @@ public class Statue : MonoBehaviour
     private void Start()
     {
         alarmSound = GetComponent<AudioSource>();
+        Observer.AddObserver("Shield", EnableShield);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -18,16 +19,11 @@ public class Statue : MonoBehaviour
             alarmSound.Play();
         }
     }
-    private void EnableShield()
+    private void EnableShield(object[] datas)
     {
-        if (UiBonnus.Instance.isShield)
-        {
-            shieldOn?.SetActive(true);
-            shieldTime = StartCoroutine(DisableShield());
-            BaseHealth.Instance.TakeDame(0);
-        }
-        else
-            return;
+        shieldOn?.SetActive(true);
+        BaseHealth.Instance.TakeDame(0);
+        shieldTime = StartCoroutine(DisableShield());
     }
     private IEnumerator DisableShield()
     {
@@ -38,6 +34,6 @@ public class Statue : MonoBehaviour
     }
     private void Update()
     {
-        EnableShield();
+
     }
 }

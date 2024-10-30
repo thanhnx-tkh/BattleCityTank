@@ -50,6 +50,8 @@ public class SpawnPlayer : MonoBehaviour
             playerController.dame = shopData.itemDatas[LevelManager.Ins.currentTankId].damage + (indexTank * 10);
             playerController.moveSpeed = (shopData.itemDatas[LevelManager.Ins.currentTankId].speed + (indexTank * 10)) / 100;
             playerHealth.maxHealth = shopData.itemDatas[LevelManager.Ins.currentTankId].maxHealth + (indexTank * 10);
+            if (LevelManager.Ins.currentLevel >= 6)
+                playerController.moveSpeed = ((shopData.itemDatas[LevelManager.Ins.currentTankId].speed + (indexTank * 10)) / 100) + 0.5f;
         }
 
     }

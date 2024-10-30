@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,16 +28,16 @@ public class UiBonnus : MonoBehaviour
         shieldObj.SetActive(LevelManager.Ins.isResilient);
         frozenButton.onClick?.AddListener(UseFrozenBonus);
         shieldButton.onClick?.AddListener(UseShieldBonus);
-        if(LevelManager.Ins.currentLevel >=0 && LevelManager.Ins.currentLevel<2)
+        if(LevelManager.Ins.currentLevel >=0 && LevelManager.Ins.currentLevel<10)
             levelText.text = "Level: " + (LevelManager.Ins.currentLevel + 1).ToString();
     }
 
     public void UseFrozenBonus()
     {
-        isFrozen = true;
+        Observer.Notify("Frozen");
     }
     public void UseShieldBonus()
     {
-        isShield = true;
+        Observer.Notify("Shield");
     }
 }

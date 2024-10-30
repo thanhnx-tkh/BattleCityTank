@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
     }
     public virtual void Dead()
     {
+        Observer.Notify("ClearEnemy");
         Destroy(this.gameObject);
     }
 }

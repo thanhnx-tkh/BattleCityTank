@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BillBoard : MonoBehaviour
 {
     [SerializeField] private Slider healthFill;
-    [SerializeField] private Health health;
+    private Health health;
     private Transform camMain;
     private void Start()
     {

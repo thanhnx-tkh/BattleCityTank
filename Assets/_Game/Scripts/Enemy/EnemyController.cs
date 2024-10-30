@@ -14,11 +14,11 @@ public class EnemyController : BaseCharacter
     public Vector3 randomDirection { get; set; }
     public float fireDelayTime;
     public float moveDelayTime;
-    public float bulletTimeDisable;  
+    public float bulletTimeDisable;
     private IState<EnemyController> currentState;
     public RunState runState;
     public FireState fireState;
-    private Vector3[] direction = new Vector3[] {Vector3.back, Vector3.forward, Vector3.left, Vector3.right };
+    private Vector3[] direction = new Vector3[] { Vector3.back, Vector3.forward, Vector3.left, Vector3.right };
     private Coroutine move;
     private Coroutine bullets;
     private Coroutine frozenTime;
@@ -27,20 +27,22 @@ public class EnemyController : BaseCharacter
         fireState = new FireState();
         runState = new RunState();
         currentState = fireState;
+        moveDelayTime = Random.Range(2, 4);
+        fireDelayTime = Random.Range(0.2f, 0.5f);
+        Observer.AddObserver("Frozen", Frozen);
     }
     private void Update()
     {
         StateControl();
-        Frozen();
     }
     protected void StateControl()
     {
-        if(currentState != null)
+        if (currentState != null)
             currentState.OnExecute(this);
     }
     private IEnumerator DelayToMove()
     {
-        yield return new WaitForSeconds(0.3f);  
+        yield return new WaitForSeconds(0.3f);
         Move();
     }
     public override void Move()
@@ -72,13 +74,13 @@ public class EnemyController : BaseCharacter
         rb.velocity = Vector3.zero;
         StartCoroutine(DelayToMove());
     }
-    
+
     public override void Fire()
     {
         bullet = SimplePool.Spawn<BaseBullet>(GetPoolTypeByBulletType());
         bullet.transform.position = bulletSpawn.position;
         bullet.transform.rotation = bulletSpawn.rotation;
-        bullet.OnInit(transform.forward,dame);
+        bullet.OnInit(transform.forward, dame);
         rb.velocity = Vector3.zero;
         anim.SetFloat(Const.runParaname, 0f);
         anim.SetTrigger(Const.shotParame);
@@ -87,20 +89,16 @@ public class EnemyController : BaseCharacter
     }
     private PoolType GetPoolTypeByBulletType()
     {
-        if(typeBullet == TypeBullet.Solider)
+        if (typeBullet == TypeBullet.Solider)
             return PoolType.bulletSolider;
         return PoolType.bulletEnenmy;
     }
-    protected void Frozen()
+    protected void Frozen(object[] datas)
     {
-        if (UiBonnus.Instance.isFrozen)
-        {
-            rb.velocity = Vector3.zero;
-            frozenEffect.SetActive(true);
-            this.enabled = false;
-            frozenTime = StartCoroutine(DeFrozen());
-        }
-        else return;
+        rb.velocity = Vector3.zero;
+        frozenEffect.SetActive(true);
+        this.enabled = false;
+        frozenTime = StartCoroutine(DeFrozen());
     }
     protected IEnumerator DeFrozen()
     {
@@ -119,10 +117,10 @@ public class EnemyController : BaseCharacter
     }
     public void ChangeState(IState<EnemyController> newState)
     {
-        if(currentState != null)
+        if (currentState != null)
             currentState.OnExit(this);
         currentState = newState;
-        if(currentState != null)
+        if (currentState != null)
             currentState.OnEnter(this);
     }
     private void OnTriggerEnter(Collider enemy)

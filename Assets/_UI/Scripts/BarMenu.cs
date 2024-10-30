@@ -67,7 +67,6 @@ public class BarMenu : UICanvas
 
         UIManager.Ins.OpenUI<UIShop>();
         UIManager.Ins.OpenUI<BarMenu>();
-        Debug.Log("Chay");
         ChangeAnim("Shop");
     }
     public void EventsButton()

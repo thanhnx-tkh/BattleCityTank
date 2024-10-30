@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     public UnityEvent<float, float> onWaveChange;
     public UnityEvent<int> onCountChange;
 
-    public static WaveManager Instance {  get; private set; }
+    public static WaveManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance != null)
@@ -45,15 +45,12 @@ public class WaveManager : MonoBehaviour
                 fireWork.SetActive(true);
                 break;
             }
-            if (waves[0] == null)
+            if (waves[0].tankEnemy.Count == 0)
             {
                 waves.RemoveAt(0);
             }
-            if (waves[0] != null)
-            {
-                waves[0].gameObject.SetActive(true);
-                waves[0].SpawnEnemy();
-            }
+            waves[0].gameObject.SetActive(true);
+            waves[0].SpawnEnemy();
         }
         onWaveChange?.Invoke(countWave, totalWave);
         onCountChange?.Invoke(countWave);
