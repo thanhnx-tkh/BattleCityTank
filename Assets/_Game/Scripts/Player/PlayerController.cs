@@ -22,9 +22,11 @@ public class PlayerController : BaseCharacter
     private Vector3 mousePosDown;
     private Vector3 mousePosUp;
     private Vector3 directionMove;
-    private bool isMoving = true;
-    private bool canFire = true;
+    public bool canFire = true;
     private float angle;
+    private bool isMoving = true;
+    public Direction currentDir { get; set; }
+
     private void Start()
     {
         directionMove = Vector3.forward * moveSpeed;
@@ -70,7 +72,7 @@ public class PlayerController : BaseCharacter
     public void GetDirectionMoving()
     {
         Angle();
-        Direction currentDir = GetDirection();
+        currentDir = GetDirection();
 
         switch (currentDir)
         {

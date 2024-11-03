@@ -5,6 +5,7 @@
     "tankLevels": [
         1
     ],
+    "isFirst": 1,
     "currentMoney": 0,
     "currentScore": 0,
     "unlockedLevels": [

@@ -22,6 +22,18 @@ public class DataManager : Singleton<DataManager>
         playerData = saveSystem.LoadPlayerData();
     }
 
+    public int GetTheFirstTimePlay()
+    {
+        LoadData();
+        return playerData.isFirst;
+    }
+
+    public void SetTheFirstTimePlay(int isFirst)
+    {
+        playerData.isFirst = isFirst;
+        SaveGame();
+    }
+
     public void PurchaseTank(int tankId)
     {
         if (!playerData.purchasedTankIds.Contains(tankId))

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MianMenu : UICanvas
@@ -49,8 +50,15 @@ public class MianMenu : UICanvas
     }
     public void PlayButton()
     {
-        Close(0);
-        UIManager.Ins.OpenUI<PlayGame>();
+        if (DataManager.Ins.GetTheFirstTimePlay() != 0)
+        {
+            Close(0);
+            UIManager.Ins.OpenUI<PlayGame>();
+        }
+        else
+        {
+            SceneManager.LoadScene("MapTutorial");
+        }
     }
     public void ShopButton()
     {
