@@ -1,12 +1,7 @@
-using Sirenix.OdinInspector.Editor.GettingStarted;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -172,7 +167,7 @@ public class TutorialManager : MonoBehaviour
     {
         fireWork.SetActive(true);
         audioBG.Stop();
-        DataManager.Ins.SetTheFirstTimePlay(1);
+        DataManager.Ins.SetTheFirstTimePlay(false);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("SceneMain");
     }

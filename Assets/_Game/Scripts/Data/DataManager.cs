@@ -22,13 +22,13 @@ public class DataManager : Singleton<DataManager>
         playerData = saveSystem.LoadPlayerData();
     }
 
-    public int GetTheFirstTimePlay()
+    public bool GetTheFirstTimePlay()
     {
         LoadData();
         return playerData.isFirst;
     }
 
-    public void SetTheFirstTimePlay(int isFirst)
+    public void SetTheFirstTimePlay(bool isFirst)
     {
         playerData.isFirst = isFirst;
         SaveGame();

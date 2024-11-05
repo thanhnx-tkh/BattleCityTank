@@ -50,7 +50,7 @@ public class MianMenu : UICanvas
     }
     public void PlayButton()
     {
-        if (DataManager.Ins.GetTheFirstTimePlay() != 0)
+        if (!DataManager.Ins.GetTheFirstTimePlay())
         {
             Close(0);
             UIManager.Ins.OpenUI<PlayGame>();
@@ -58,6 +58,7 @@ public class MianMenu : UICanvas
         else
         {
             SceneManager.LoadScene("MapTutorial");
+            DataManager.Ins.SetTheFirstTimePlay(false);
         }
     }
     public void ShopButton()

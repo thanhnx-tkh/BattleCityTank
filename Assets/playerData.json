@@ -5,15 +5,13 @@
     "tankLevels": [
         1
     ],
-    "isFirst": 1,
+    "isFirst": false,
     "currentMoney": 0,
     "currentScore": 0,
     "unlockedLevels": [
-        0,
-        1
+        0
     ],
     "starLevels": [
-        1,
-        3
+        1
     ]
 }

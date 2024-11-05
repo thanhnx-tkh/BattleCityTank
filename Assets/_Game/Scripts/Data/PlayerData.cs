@@ -6,7 +6,7 @@ public class PlayerData
 {
     public List<int> purchasedTankIds; 
     public List<int> tankLevels;
-    public int isFirst;
+    public bool isFirst;
     public int currentMoney; 
     public int currentScore;  
     public List<int> unlockedLevels; 
@@ -16,7 +16,7 @@ public class PlayerData
     {
         purchasedTankIds = new List<int>{0};
         tankLevels = new List<int>{1};
-        isFirst = 0;
+        isFirst = true;
         unlockedLevels = new List<int>{0};
         starLevels = new List<int>{};
         currentMoney = 5000;
